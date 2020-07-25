@@ -1,0 +1,30 @@
+GET https://localhost:8081/api/v1/warehouse/name/comilla%20sasongas-23
+
+###
+
+GET https://localhost:8081/api/v1/warehouse/name/{{}}
+
+###
+
+GET https://localhost:8081/api/v1/warehouse-stock/1
+
+###
+
+GET https://localhost:8081/api/v1/warehouse-stock/1
+
+###
+
+GET https://localhost:8081/api/v1/warehouse-stock/{{id}}
+
+###
+
+GET https://localhost:8081/api/v1/warehouse-stock/{{1}}
+
+###
+
+GET http://localhost:8081/api/v1/address/all
+
+<> 2020-06-22T084543.200.json
+
+###
+

@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BeansEndpointTabSettings">
+    <option name="diagramMode" value="true" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3587b7d2-5f94-4c3e-b092-5129a672cb3f" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="190" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../Super Shop Management System\exportToHTML" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+        <option value="HTTP Public Environment File" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="FindBugs-IDEA-Workspace">
+    <toolWindowGroupBy>BugRank</toolWindowGroupBy>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/Java-Techie-jt/spring-cloud-stream-example.git" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1WqniEcf6fV7N8lPbDg2i5zSgbp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/example/supershop" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="rest.client.default.execution.environment" value="dev" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.supershop.standard.services.impl" />
+      <recent name="com.example.supershop.services" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.supershop.standard.services.impl" />
+      <recent name="com.example.supershop.model.invoice" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.supershop.dto.request" />
+      <recent name="com.example.supershop.model" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.supershop.standard.services.impl" />
+      <recent name="com.example.supershop.dto.request" />
+      <recent name="com.example.supershop.model" />
+      <recent name="com.example.supershop.standard.services" />
+      <recent name="com.example.supershop.dto" />
+    </key>
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8081/api/v1/address/all" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.SupershopApplication">
+    <configuration name="generated-requests#3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests#4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="4" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="ProductsServiceTest.createProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Super Shop Management System" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.supershop.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.supershop.services" />
+      <option name="MAIN_CLASS_NAME" value="com.example.supershop.services.ProductsServiceTest" />
+      <option name="METHOD_NAME" value="createProduct" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductsServiceTest.saveCategory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Super Shop Management System" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.supershop.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.supershop.services" />
+      <option name="MAIN_CLASS_NAME" value="com.example.supershop.services.ProductsServiceTest" />
+      <option name="METHOD_NAME" value="saveCategory" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WareHouseServiceImplTest.create" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Super Shop Management System" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.supershop.standard.services.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.supershop.standard.services.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.example.supershop.standard.services.impl.WareHouseServiceImplTest" />
+      <option name="METHOD_NAME" value="create" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="supershop [spring-boot:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="spring-boot:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="SupershopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Super Shop Management System" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.supershop.SuperShopApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="HTTP Request.generated-requests#4" />
+      <item itemvalue="HTTP Request.generated-requests#3" />
+      <item itemvalue="JUnit.ProductsServiceTest.saveCategory" />
+      <item itemvalue="JUnit.ProductsServiceTest.createProduct" />
+      <item itemvalue="JUnit.WareHouseServiceImplTest.create" />
+      <item itemvalue="Maven.supershop [spring-boot:run]" />
+      <item itemvalue="Spring Boot.SupershopApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.generated-requests#3" />
+        <item itemvalue="HTTP Request.generated-requests#4" />
+        <item itemvalue="JUnit.ProductsServiceTest.createProduct" />
+        <item itemvalue="JUnit.ProductsServiceTest.saveCategory" />
+        <item itemvalue="JUnit.WareHouseServiceImplTest.create" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpringBeansView">
+    <option name="showModules" value="false" />
+    <option name="beanDetailsProportion" value="0.3" />
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_INHERITED,SHOW_LAMBDA,SHOW_INTERFACES,SHOW_PROPERTIES" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Poran chowdury\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3587b7d2-5f94-4c3e-b092-5129a672cb3f" name="Default Changelist" comment="" />
+      <created>1579886117252</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1579886117252</updated>
+      <workItem from="1579886121059" duration="421000" />
+      <workItem from="1579886575015" duration="3666000" />
+      <workItem from="1579933505095" duration="11288000" />
+      <workItem from="1579961052919" duration="9947000" />
+      <workItem from="1580028207249" duration="661000" />
+      <workItem from="1580052583317" duration="3829000" />
+      <workItem from="1580122633680" duration="1099000" />
+      <workItem from="1580123770275" duration="645000" />
+      <workItem from="1580127565204" duration="2650000" />
+      <workItem from="1580136679750" duration="3862000" />
+      <workItem from="1580217899305" duration="559000" />
+      <workItem from="1580218629045" duration="255000" />
+      <workItem from="1580235260188" duration="647000" />
+      <workItem from="1580280613107" duration="24164000" />
+      <workItem from="1580488678361" duration="1966000" />
+      <workItem from="1580552247193" duration="367000" />
+      <workItem from="1580564126088" duration="72000" />
+      <workItem from="1580565025797" duration="25000" />
+      <workItem from="1581584317716" duration="6508000" />
+      <workItem from="1581597901675" duration="13833000" />
+      <workItem from="1581750876177" duration="290000" />
+      <workItem from="1581751510682" duration="165000" />
+      <workItem from="1581761621497" duration="50000" />
+      <workItem from="1581765210722" duration="3884000" />
+      <workItem from="1582046256317" duration="4034000" />
+      <workItem from="1582224171238" duration="3892000" />
+      <workItem from="1582262873096" duration="9601000" />
+      <workItem from="1582294872760" duration="5711000" />
+      <workItem from="1582445349216" duration="1970000" />
+      <workItem from="1582463223438" duration="6632000" />
+      <workItem from="1582564782250" duration="1129000" />
+      <workItem from="1582628854982" duration="7152000" />
+      <workItem from="1582703314245" duration="17482000" />
+      <workItem from="1582738138232" duration="80000" />
+      <workItem from="1582783806658" duration="4434000" />
+      <workItem from="1582790615629" duration="3265000" />
+      <workItem from="1582807125777" duration="3014000" />
+      <workItem from="1582825435787" duration="1723000" />
+      <workItem from="1582865411499" duration="987000" />
+      <workItem from="1582904260548" duration="1706000" />
+      <workItem from="1582919914212" duration="1102000" />
+      <workItem from="1582925681039" duration="54000" />
+      <workItem from="1583215638505" duration="1215000" />
+      <workItem from="1583431517122" duration="948000" />
+      <workItem from="1583603943216" duration="62000" />
+      <workItem from="1584287262335" duration="1641000" />
+      <workItem from="1586514623456" duration="7216000" />
+      <workItem from="1586574103524" duration="7035000" />
+      <workItem from="1586611150867" duration="3956000" />
+      <workItem from="1586656701598" duration="591000" />
+      <workItem from="1586664152237" duration="881000" />
+      <workItem from="1586679550072" duration="594000" />
+      <workItem from="1586683359019" duration="193000" />
+      <workItem from="1586704562726" duration="2834000" />
+      <workItem from="1586838340018" duration="11048000" />
+      <workItem from="1586859888438" duration="15018000" />
+      <workItem from="1586951705464" duration="1806000" />
+      <workItem from="1586964457383" duration="3015000" />
+      <workItem from="1587041801417" duration="8712000" />
+      <workItem from="1587100275643" duration="4017000" />
+      <workItem from="1587131301647" duration="2607000" />
+      <workItem from="1587182932077" duration="7347000" />
+      <workItem from="1587350119633" duration="1237000" />
+      <workItem from="1587375589407" duration="5249000" />
+      <workItem from="1587478449496" duration="2277000" />
+      <workItem from="1587525127027" duration="5762000" />
+      <workItem from="1587703068660" duration="782000" />
+      <workItem from="1587797727258" duration="700000" />
+      <workItem from="1587839454359" duration="1018000" />
+      <workItem from="1587907019560" duration="965000" />
+      <workItem from="1587908579057" duration="2428000" />
+      <workItem from="1588003994155" duration="809000" />
+      <workItem from="1588042884414" duration="978000" />
+      <workItem from="1588299971263" duration="434000" />
+      <workItem from="1588329161443" duration="88000" />
+      <workItem from="1588512766630" duration="1176000" />
+      <workItem from="1588561263971" duration="886000" />
+      <workItem from="1589788301854" duration="1836000" />
+      <workItem from="1589816958994" duration="708000" />
+      <workItem from="1590206667961" duration="6700000" />
+      <workItem from="1590233397345" duration="1631000" />
+      <workItem from="1590292567215" duration="795000" />
+      <workItem from="1590566744790" duration="47000" />
+      <workItem from="1590580572580" duration="3608000" />
+      <workItem from="1590640630596" duration="103000" />
+      <workItem from="1590657754449" duration="3708000" />
+      <workItem from="1591690302684" duration="268000" />
+      <workItem from="1592036010115" duration="1986000" />
+      <workItem from="1592297810426" duration="327000" />
+      <workItem from="1592327221223" duration="6292000" />
+      <workItem from="1592365419913" duration="5812000" />
+      <workItem from="1592376215953" duration="7569000" />
+      <workItem from="1592389073699" duration="3030000" />
+      <workItem from="1592407659976" duration="5498000" />
+      <workItem from="1592452569340" duration="11466000" />
+      <workItem from="1592486325256" duration="12247000" />
+      <workItem from="1592555119069" duration="5033000" />
+      <workItem from="1592678884699" duration="5369000" />
+      <workItem from="1592726220249" duration="5138000" />
+      <workItem from="1592742602266" duration="25848000" />
+      <workItem from="1592806293649" duration="6816000" />
+      <workItem from="1592820508931" duration="5613000" />
+      <workItem from="1592830985894" duration="17598000" />
+      <workItem from="1592886150247" duration="8855000" />
+      <workItem from="1592904054886" duration="6543000" />
+      <workItem from="1592916478431" duration="6284000" />
+      <workItem from="1592973591060" duration="1671000" />
+      <workItem from="1593009426334" duration="1271000" />
+      <workItem from="1593058178295" duration="1190000" />
+      <workItem from="1593073964767" duration="1101000" />
+      <workItem from="1593081925274" duration="639000" />
+      <workItem from="1593088124963" duration="2160000" />
+      <workItem from="1593152336909" duration="1103000" />
+      <workItem from="1593159485229" duration="4277000" />
+      <workItem from="1593176929486" duration="22981000" />
+      <workItem from="1593239305825" duration="3176000" />
+      <workItem from="1593277533116" duration="11090000" />
+      <workItem from="1593328170431" duration="1784000" />
+      <workItem from="1593334128045" duration="2661000" />
+      <workItem from="1593355082743" duration="16372000" />
+      <workItem from="1593408736943" duration="1634000" />
+      <workItem from="1593432917017" duration="21405000" />
+      <workItem from="1593507787337" duration="449000" />
+      <workItem from="1593538266612" duration="350000" />
+      <workItem from="1593545125588" duration="327000" />
+      <workItem from="1593601347055" duration="2531000" />
+      <workItem from="1593613744785" duration="3362000" />
+      <workItem from="1593624493611" duration="919000" />
+      <workItem from="1593625488860" duration="110000" />
+      <workItem from="1593625630490" duration="3073000" />
+      <workItem from="1593631005443" duration="40000" />
+      <workItem from="1593631629164" duration="7311000" />
+      <workItem from="1593662411279" duration="8126000" />
+      <workItem from="1593673842785" duration="2880000" />
+      <workItem from="1593681013725" duration="1499000" />
+      <workItem from="1593698520831" duration="1942000" />
+      <workItem from="1593710145909" duration="4717000" />
+      <workItem from="1593790599768" duration="774000" />
+      <workItem from="1593809489487" duration="12015000" />
+      <workItem from="1593848318939" duration="3181000" />
+      <workItem from="1593861469482" duration="15434000" />
+      <workItem from="1593923858130" duration="2199000" />
+      <workItem from="1593940822741" duration="5323000" />
+      <workItem from="1593956793329" duration="9393000" />
+      <workItem from="1594020053000" duration="393000" />
+      <workItem from="1594020492023" duration="1459000" />
+      <workItem from="1594027143140" duration="640000" />
+      <workItem from="1594027863464" duration="768000" />
+      <workItem from="1594045486016" duration="2552000" />
+      <workItem from="1594093315022" duration="7631000" />
+      <workItem from="1594103837846" duration="11461000" />
+      <workItem from="1594137644922" duration="3480000" />
+      <workItem from="1594173920940" duration="603000" />
+      <workItem from="1594177043347" duration="3853000" />
+      <workItem from="1594183350103" duration="1280000" />
+      <workItem from="1594184925492" duration="3730000" />
+      <workItem from="1594219728188" duration="4529000" />
+      <workItem from="1594303805756" duration="7171000" />
+      <workItem from="1594741654041" duration="8638000" />
+      <workItem from="1594818075832" duration="328000" />
+      <workItem from="1594820059054" duration="4049000" />
+      <workItem from="1594859639624" duration="4428000" />
+      <workItem from="1594907462771" duration="7494000" />
+      <workItem from="1594955379830" duration="5000000" />
+      <workItem from="1595004179076" duration="2627000" />
+      <workItem from="1595044984191" duration="3751000" />
+      <workItem from="1595058022094" duration="1776000" />
+      <workItem from="1595076612011" duration="3300000" />
+      <workItem from="1595133135708" duration="8130000" />
+      <workItem from="1595156566370" duration="2009000" />
+      <workItem from="1595219830010" duration="4910000" />
+      <workItem from="1595239511764" duration="1528000" />
+      <workItem from="1595250396714" duration="7462000" />
+      <workItem from="1595349166455" duration="1595000" />
+      <workItem from="1595478665771" duration="2979000" />
+      <workItem from="1595500367624" duration="4115000" />
+      <workItem from="1595517165625" duration="13847000" />
+      <workItem from="1595561067877" duration="555000" />
+      <workItem from="1595561699004" duration="6361000" />
+      <workItem from="1595597312847" duration="10437000" />
+      <workItem from="1595686459745" duration="6483000" />
+      <workItem from="1595693162180" duration="2361000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="VaadinDesigner.SizePresetsSettingsComponent">
+    <option name="sizePresets">
+      <list>
+        <SizePreset>
+          <option name="caption" value="Phone" />
+          <option name="height" value="568" />
+          <option name="width" value="320" />
+        </SizePreset>
+        <SizePreset>
+          <option name="caption" value="Tablet" />
+          <option name="height" value="1024" />
+          <option name="width" value="768" />
+        </SizePreset>
+        <SizePreset>
+          <option name="caption" value="Desktop" />
+          <option name="height" value="900" />
+          <option name="width" value="1440" />
+        </SizePreset>
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="582" y="255" key="#Assign_Data_Sources" timestamp="1595501713467">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="582" y="255" key="#Assign_Data_Sources/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595501713467" />
+    <state x="582" y="255" key="#Assign_Data_Sources/0.0.1366.728/-1440.0.1440.860@0.0.1366.728" timestamp="1595140773234" />
+    <state x="568" y="227" key="#Notifications" timestamp="1593625511800">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="568" y="227" key="#Notifications/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1593625511800" />
+    <state x="275" y="0" key="#Project_Structure" timestamp="1594958777900">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1594958777900" />
+    <state x="413" y="120" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1593867424572">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="120" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1593867424572" />
+    <state x="413" y="120" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1593187068960" />
+    <state x="274" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592845767284">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="274" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1592845767284" />
+    <state x="274" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1587479106323" />
+    <state x="488" y="74" width="636" height="581" key="#com.intellij.ide.util.MemberChooser" timestamp="1595687885938">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="74" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595687885938" />
+    <state x="488" y="74" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/-1440.0.1440.860@0.0.1366.728" timestamp="1595138274348" />
+    <state x="488" y="74" width="636" height="581" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1595349837104" />
+    <state x="353" y="164" width="659" height="438" key="#com.intellij.jpa.generation.ui.ImportMappingsDialog" timestamp="1592036612905">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="353" y="164" width="659" height="438" key="#com.intellij.jpa.generation.ui.ImportMappingsDialog/0.0.1366.728@0.0.1366.728" timestamp="1592036612905" />
+    <state x="363" y="92" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1593619877136">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="363" y="92" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1593619877136" />
+    <state x="114" y="289" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1592761177374">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="114" y="289" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1592761177374" />
+    <state x="462" y="223" width="501" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1593880363804">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="462" y="223" width="501" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1593880363804" />
+    <state x="462" y="223" width="501" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1593441403619" />
+    <state x="222" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1595565266023">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="222" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595565266023" />
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587910182548">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/1366.0.1440.860@0.0.1366.728" timestamp="1587910182548" />
+    <state x="413" y="111" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1593633654689">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="111" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1593633654689" />
+    <state x="438" y="67" key="#xdebugger.evaluate" timestamp="1592468916680">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="438" y="67" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1592468916680" />
+    <state width="447" height="466" key="DebuggerActiveHint" timestamp="1592471790517">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="447" height="466" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1592471790517" />
+    <state x="427" y="0" key="Diagram.Print.Preview.Dialog" timestamp="1592037216687">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="427" y="0" key="Diagram.Print.Preview.Dialog/0.0.1366.728@0.0.1366.728" timestamp="1592037216687" />
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1593619800198">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1593619800198" />
+    <state x="463" y="91" key="FileChooserDialogImpl" timestamp="1595695275580">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="91" key="FileChooserDialogImpl/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595695275580" />
+    <state x="463" y="91" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593603271984" />
+    <state x="501" y="262" key="Github.ShareDialog" timestamp="1595695348465">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="501" y="262" key="Github.ShareDialog/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595695348465" />
+    <state width="1323" height="531" key="GridCell.Tab.0.bottom" timestamp="1595693036657">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="531" key="GridCell.Tab.0.bottom/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595693036657" />
+    <state width="1323" height="531" key="GridCell.Tab.0.bottom/0.0.1366.728/-1440.0.1440.860@0.0.1366.728" timestamp="1595141376197" />
+    <state width="1323" height="171" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1440.860@0.0.1366.728" timestamp="1587911436375" />
+    <state width="1323" height="375" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594964257826" />
+    <state width="1323" height="531" key="GridCell.Tab.0.center" timestamp="1595693036657">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="531" key="GridCell.Tab.0.center/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595693036657" />
+    <state width="1323" height="531" key="GridCell.Tab.0.center/0.0.1366.728/-1440.0.1440.860@0.0.1366.728" timestamp="1595141376197" />
+    <state width="1323" height="171" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1440.860@0.0.1366.728" timestamp="1587911436374" />
+    <state width="1323" height="375" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1594964257826" />
+    <state width="1323" height="531" key="GridCell.Tab.0.left" timestamp="1595693036657">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="531" key="GridCell.Tab.0.left/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595693036657" />
+    <state width="1323" height="531" key="GridCell.Tab.0.left/0.0.1366.728/-1440.0.1440.860@0.0.1366.728" timestamp="1595141376197" />
+    <state width="1323" height="171" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1440.860@0.0.1366.728" timestamp="1587911436374" />
+    <state width="1323" height="375" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1594964257826" />
+    <state width="1323" height="531" key="GridCell.Tab.0.right" timestamp="1595693036657">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="531" key="GridCell.Tab.0.right/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595693036657" />
+    <state width="1323" height="531" key="GridCell.Tab.0.right/0.0.1366.728/-1440.0.1440.860@0.0.1366.728" timestamp="1595141376197" />
+    <state width="1323" height="171" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1440.860@0.0.1366.728" timestamp="1587911436374" />
+    <state width="1323" height="375" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1594964257826" />
+    <state width="1323" height="531" key="GridCell.Tab.1.bottom" timestamp="1595693036657">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="531" key="GridCell.Tab.1.bottom/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595693036657" />
+    <state width="1323" height="531" key="GridCell.Tab.1.bottom/0.0.1366.728/-1440.0.1440.860@0.0.1366.728" timestamp="1595141376197" />
+    <state width="1323" height="171" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1440.860@0.0.1366.728" timestamp="1587911436375" />
+    <state width="1323" height="375" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594921982431" />
+    <state width="1323" height="531" key="GridCell.Tab.1.center" timestamp="1595693036657">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="531" key="GridCell.Tab.1.center/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595693036657" />
+    <state width="1323" height="531" key="GridCell.Tab.1.center/0.0.1366.728/-1440.0.1440.860@0.0.1366.728" timestamp="1595141376197" />
+    <state width="1323" height="171" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1440.860@0.0.1366.728" timestamp="1587911436375" />
+    <state width="1323" height="375" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1594921982431" />
+    <state width="1323" height="531" key="GridCell.Tab.1.left" timestamp="1595693036657">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="531" key="GridCell.Tab.1.left/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595693036657" />
+    <state width="1323" height="531" key="GridCell.Tab.1.left/0.0.1366.728/-1440.0.1440.860@0.0.1366.728" timestamp="1595141376197" />
+    <state width="1323" height="171" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1440.860@0.0.1366.728" timestamp="1587911436375" />
+    <state width="1323" height="375" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1594921982431" />
+    <state width="1323" height="531" key="GridCell.Tab.1.right" timestamp="1595693036657">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="531" key="GridCell.Tab.1.right/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595693036657" />
+    <state width="1323" height="531" key="GridCell.Tab.1.right/0.0.1366.728/-1440.0.1440.860@0.0.1366.728" timestamp="1595141376197" />
+    <state width="1323" height="171" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1440.860@0.0.1366.728" timestamp="1587911436375" />
+    <state width="1323" height="375" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1594921982431" />
+    <state width="1323" height="312" key="GridCell.Tab.2.bottom" timestamp="1594118159933">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="312" key="GridCell.Tab.2.bottom/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1593969643073" />
+    <state width="1323" height="312" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594118159933" />
+    <state width="1323" height="312" key="GridCell.Tab.2.center" timestamp="1594118159933">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="312" key="GridCell.Tab.2.center/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1593969643072" />
+    <state width="1323" height="312" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1594118159933" />
+    <state width="1323" height="312" key="GridCell.Tab.2.left" timestamp="1594118159933">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="312" key="GridCell.Tab.2.left/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1593969643072" />
+    <state width="1323" height="312" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1594118159933" />
+    <state width="1323" height="312" key="GridCell.Tab.2.right" timestamp="1594118159933">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="312" key="GridCell.Tab.2.right/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1593969643073" />
+    <state width="1323" height="312" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1594118159933" />
+    <state x="263" y="107" key="IDE.errors.dialog" timestamp="1593619976394">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="263" y="107" key="IDE.errors.dialog/0.0.1366.728@0.0.1366.728" timestamp="1593619976394" />
+    <state x="348" y="63" key="NewModule_or_Project.wizard" timestamp="1593603107297">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="348" y="63" key="NewModule_or_Project.wizard/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1593538621342" />
+    <state x="348" y="63" key="NewModule_or_Project.wizard/0.0.1366.728@0.0.1366.728" timestamp="1593603107297" />
+    <state x="297" y="29" key="Registry" timestamp="1593163951531">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="297" y="29" key="Registry/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1593163951531" />
+    <state x="498" y="298" key="ReplaceDuplicatesPrompt" timestamp="1592760106106">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="498" y="298" key="ReplaceDuplicatesPrompt/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1592760106106" />
+    <state x="235" y="86" key="RollbackChangesDialog" timestamp="1592681504354">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="235" y="86" key="RollbackChangesDialog/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1592681504354" />
+    <state x="184" y="0" key="SettingsEditor" timestamp="1595693214150">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="0" key="SettingsEditor/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595693214150" />
+    <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593186187013" />
+    <state x="437" y="118" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1592835112399">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="437" y="118" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1592835112399" />
+    <state x="437" y="118" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1366.728@0.0.1366.728" timestamp="1587350451280" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1593614248418">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1593538271862" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1440.860@0.0.1366.728" timestamp="1588043267515" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1593614248418" />
+    <state x="766" y="106" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1595523975027">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="766" y="106" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595523975027" />
+    <state x="766" y="106" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1594956361422" />
+    <state x="152" y="100" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1593189132150">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="152" y="100" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1593189132150" />
+    <state x="152" y="100" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.728@0.0.1366.728" timestamp="1592370396507" />
+    <state x="-1185" y="-116" width="1048" height="715" maximized="true" key="dock-window-1" timestamp="1595693185791">
+      <screen x="-1440" y="-138" width="1440" height="860" />
+    </state>
+    <state x="-1185" y="-116" width="1048" height="715" maximized="true" key="dock-window-1/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595693185791" />
+    <state x="457" y="160" width="540" height="496" key="extract.method.dialog" timestamp="1594177185827">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="457" y="160" width="540" height="496" key="extract.method.dialog/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1594177185827" />
+    <state x="457" y="160" key="extract.method.dialog/0.0.1366.728@0.0.1366.728" timestamp="1593810377477" />
+    <state x="379" y="96" width="737" height="606" key="find.popup" timestamp="1593377410242">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="96" width="737" height="606" key="find.popup/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1593377410242" />
+    <state x="379" y="96" width="607" height="536" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1593188166512" />
+    <state x="65" y="66" key="new project wizard" timestamp="1590658603940">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="65" y="66" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1590658603940" />
+    <state x="389" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1593375737852">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="389" y="0" key="refactoring.ChangeSignatureDialog/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1593375737852" />
+    <state x="389" y="0" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1592465303689" />
+    <state x="347" y="176" key="run.anything.popup" timestamp="1594317849373">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="347" y="176" key="run.anything.popup/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1594317849373" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1595688610169">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595688610169" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/-1440.0.1440.860@0.0.1366.728" timestamp="1595140039633" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1440.860@0.0.1366.728" timestamp="1587909387637" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1595133361537" />
+    <state x="513" y="155" key="svn.repositoryBrowser" timestamp="1595695533690">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="513" y="155" key="svn.repositoryBrowser/0.0.1366.728/-1440.-138.1440.860@0.0.1366.728" timestamp="1595695533690" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Super_Shop_Management_System$RoleServiceTest.ic" NAME="RoleServiceTest Coverage Results" MODIFIED="1582710194024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.supershop.services.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="com.vaadin.designer2.intellij.settings.SizePresetsSettingsComponent">
+    <option name="sizePresets">
+      <list>
+        <SizePreset>
+          <option name="caption" value="Phone" />
+          <option name="height" value="568" />
+          <option name="width" value="320" />
+        </SizePreset>
+        <SizePreset>
+          <option name="caption" value="Tablet" />
+          <option name="height" value="1024" />
+          <option name="width" value="768" />
+        </SizePreset>
+        <SizePreset>
+          <option name="caption" value="Desktop" />
+          <option name="height" value="900" />
+          <option name="width" value="1440" />
+        </SizePreset>
+      </list>
+    </option>
+  </component>
+  <component name="designer.settings">
+    <option name="autodetectServerAddress" value="true" />
+    <option name="serverIp" value="localhost" />
+  </component>
+</project>

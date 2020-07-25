@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="213.0" y="13.0">com.example.supershop.model.Person</node>
+    <node x="0.0" y="277.0">com.example.supershop.model.Category</node>
+    <node x="0.0" y="422.0">com.example.supershop.model.Address</node>
+    <node x="233.0" y="277.0">com.example.supershop.model.Discount</node>
+    <node x="0.0" y="0.0">com.example.supershop.model.Product</node>
+    <node x="426.0" y="277.0">com.example.supershop.model.Name</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.0" x="476.5" y="267.0" />
+  <SelectedNodes>
+    <node>com.example.supershop.model.Person</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

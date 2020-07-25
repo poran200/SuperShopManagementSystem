@@ -1,0 +1,6 @@
+com\example\supershop\services\ProductsServiceTest.class
+com\example\supershop\services\StockServiceTest.class
+com\example\supershop\services\UserServiceTest.class
+com\example\supershop\services\RoleServiceTest.class
+com\example\supershop\services\ShopServiceTest.class
+com\example\supershop\SuperShopApplicationTests.class
