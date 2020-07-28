@@ -30,6 +30,9 @@ public class Category extends BaseModel implements Serializable {
      @JsonIgnoreProperties(value = "category")
      private List<Product>productList;
 
+//     @ManyToOne(fetch = FetchType.LAZY)
+//     @JoinColumn(name = "sub_category")
+//     private Category subCategory;
      public  void addProduct(Product product){
           if (productList==null){
                productList = new ArrayList<>();

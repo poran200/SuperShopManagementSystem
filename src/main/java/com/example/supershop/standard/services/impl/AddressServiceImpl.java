@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service("AddressService")
-public class AddressServiceImpl implements AddressService {
+public class  AddressServiceImpl implements AddressService {
     private final AddressRepository addressRepository;
     private final ModelMapper modelMapper;
     public AddressServiceImpl(AddressRepository addressRepository, ModelMapper modelMapper) {
@@ -58,7 +58,6 @@ public class AddressServiceImpl implements AddressService {
             }
         }
         return ResponseBuilder.getFailureResponse(HttpStatus.NOT_FOUND,"optionalAddress not found "+ id);
-
     }
 
     private boolean isSave(Address saveAddress) {

@@ -1,6 +1,7 @@
 package com.example.supershop.model;
 
-import lombok.*;
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -26,6 +27,5 @@ public abstract class BaseModel   {
     public void setPostUpdateData(){
         this.updatedAt = new Date();
     }
-
 
 }
