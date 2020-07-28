@@ -5,7 +5,6 @@ import com.example.supershop.dto.respose.Response;
 import com.example.supershop.exception.EntityAlreadyExistException;
 import com.example.supershop.model.Category;
 import com.example.supershop.model.Product;
-import com.example.supershop.model.ProductRequest;
 import com.example.supershop.repository.CategoryRepository;
 import com.example.supershop.repository.ProductRepository;
 import com.example.supershop.standard.services.ProductService;
@@ -57,7 +56,7 @@ class ProductsServiceTest {
 
 //         categoryService.deleteAllProducts(4);
 //         categoryRepository.deleteById(4L);
-        Category category = new Category(4, "Test category", null);
+        Category category = new Category(4, "Test category", null,null,null);
         categoryRepository.save(category);
         assertEquals(4,category.getId());
     }

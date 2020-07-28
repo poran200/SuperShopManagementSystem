@@ -91,6 +91,13 @@ public final class  ResponseBuilder {
                 .timestamp(new Date().getTime())
                 .build();
     }
+    public static Response getInternalServerError(){
+        return Response.builder()
+                .massage("Internal server error!")
+                .status(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase())
+                .statusCode(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                .build();
+    }
 
 
 }

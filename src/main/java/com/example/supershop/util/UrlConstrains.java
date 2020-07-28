@@ -80,4 +80,16 @@ public final class UrlConstrains {
         public static final String ALL_BY_PAGE = "/stocks/{warehouseId}";
         public static final String DELETE = "/{id}";
     }
+
+    public static class CategoryManagement {
+        public CategoryManagement() { }
+        public static final String  ROOT = API+VERSION+"/category";
+        public static final String  CREATE ="";
+        public static final String FIND_BY_ID ="/{id}";
+        public static final String FIND_BY_NAME ="/{name}";
+         public static final String UPDATE= "/{id}";
+        public static final String ALL_BY_PAGE = "/categories";
+        public static final String DELETE = "/{id}";
+
+    }
 }
