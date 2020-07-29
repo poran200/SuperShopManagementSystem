@@ -1,5 +1,5 @@
 package com.example.supershop.repository;
-import com.example.supershop.model.Invoice;
+
 import com.example.supershop.model.SalesInvoice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -13,5 +13,5 @@ import java.util.Optional;
 public interface SaleInvoiceRepository extends JpaRepository<SalesInvoice, Integer> {
 
    List<SalesInvoice> findAllByShop_ShopId(long shopId);
-   Optional<SalesInvoice> findBySaleInvoiceIdAndIsActiveTrue(long invoiceId );
+   Optional<SalesInvoice> findBySaleInvoiceIdAndIsActiveTrue(int invoiceId );
 }

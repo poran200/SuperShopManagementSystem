@@ -8,7 +8,6 @@ import com.example.supershop.dto.respose.Response;
 import com.example.supershop.model.Provider;
 import com.example.supershop.standard.services.ProviderService;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.internal.util.Callable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.validation.BindingResult;
@@ -41,22 +40,24 @@ public class ProviderController {
     @Async
     public CompletableFuture<ResponseEntity<Object>> getProviderId(@PathVariable Long providerId){
         var response = providerService.getById(providerId);
-        Provider provider = (Provider) response.getContent();
-         ProviderResponseDto  providerResponseDto =  modelMapper.map(provider,ProviderResponseDto.class);
-        providerResponseDto.add(linkTo(methodOn(AddressController.class)
-                .getById(provider.getAddress().getId())).withRel("/address"));
+        if (response.getContent() != null){
+            Provider provider = (Provider) response.getContent();
+            ProviderResponseDto  providerResponseDto =  modelMapper.map(provider,ProviderResponseDto.class);
+            providerResponseDto.add(linkTo(methodOn(AddressController.class)
+                    .getById(provider.getAddress().getId())).withRel("/address"));
 
-        providerResponseDto.add(linkTo(methodOn(ProviderController.class)
-                .getProviderInvoices(providerId)).withRel(Provider_Invoices));
+            providerResponseDto.add(linkTo(methodOn(ProviderController.class)
+                    .getProviderInvoices(providerId)).withRel(Provider_Invoices));
 
-        response.setContent(providerResponseDto);
-         return CompletableFuture.completedFuture(ResponseEntity.ok(response));
+            response.setContent(providerResponseDto);
+            return CompletableFuture.completedFuture(ResponseEntity.status((int) response.getStatusCode()).body(response));
+        }
+        return CompletableFuture.completedFuture(ResponseEntity.status((int) response.getStatusCode()).body(response));
     }
     @GetMapping(Provider_Invoices)
     @Async
-    public CompletableFuture<Callable<ResponseEntity<Response>>> getProviderInvoices(@PathVariable Long providerId){
+    public CompletableFuture<ResponseEntity<Object>> getProviderInvoices(@PathVariable Long providerId){
         var response = providerService.getProviderInvoices(providerId);
-        return CompletableFuture.completedFuture(() -> ResponseEntity.status((int)
-                response.getStatusCode()).body(response));
+        return CompletableFuture.completedFuture(ResponseEntity.status((int) response.getStatusCode()).body(response));
     }
 }

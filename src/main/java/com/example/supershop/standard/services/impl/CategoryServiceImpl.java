@@ -26,11 +26,9 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Response create(CategoryDto categoryDto) {
-        modelMapper.getConfiguration().setPropertyCondition(Conditions.isNotNull());
-//        modelMapper.getConfiguration().setPropertyCondition(Conditions.isType(Category.class));
-       try {
+        getMappingConfig();
+        try {
            var category = modelMapper.map(categoryDto, Category.class);
-//           category.setSubCategory(categoryDto.getSuperCategory());
            var savedCategory = categoryRepository.save(category);
            return getSuccessResponse(HttpStatus.CREATED,"category created",savedCategory);
        }catch (Exception e){
@@ -39,10 +37,18 @@ public class CategoryServiceImpl implements CategoryService {
         }
     }
 
+    private void getMappingConfig() {
+        modelMapper.getConfiguration().setPropertyCondition(Conditions.isNotNull());
+        modelMapper.createTypeMap(CategoryDto.class, Category.class)
+                .addMapping(CategoryDto::getSubCategory,Category::setSubCategory);
+    }
+
     @Override
     public Response getById(long id) {
-       return categoryRepository.findByIdAndIsActiveTrue(id)
-               .map(category -> getSuccessResponse(HttpStatus.OK,"category found",category))
+          var optionalCategory = categoryRepository.findByIdAndIsActiveTrue(id);
+            return optionalCategory .map(category -> getSuccessResponse(HttpStatus.OK,"category found",
+                    modelMapper.map(category,CategoryDto.class)
+                    ))
                .orElse(getFailureResponse(HttpStatus.NOT_FOUND,"category not found"));
     }
 
@@ -69,15 +75,17 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Response update(long id, Category category) {
+    public Response update(long id, CategoryDto categoryDto) {
         var categoryOptional = categoryRepository.findByIdAndIsActiveTrue(id);
         if (categoryOptional.isPresent()){
             try{
+                var category = modelMapper.map(categoryDto, Category.class);
                 var categoryGet = categoryOptional.get();
+//                categoryGet.setId(categoryGet.getId());
                 categoryGet.setCategoryName(category.getCategoryName());
-                categoryGet.addSubCategory(category);
+                categoryGet.setSubCategory(category.getSubCategory());
                 var saveCategory = categoryRepository.save(categoryGet);
-                return getSuccessResponse(HttpStatus.OK,"Category updated",saveCategory);
+                return getSuccessResponse(HttpStatus.OK,"Category updated",modelMapper.map(saveCategory,CategoryDto.class));
             }catch (Exception e){
                 log.error(e.getMessage());
                 return getInternalServerError();

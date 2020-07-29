@@ -9,7 +9,6 @@ import com.example.supershop.repository.SaleInvoiceRepository;
 import com.example.supershop.standard.services.ProductSaleService;
 import com.example.supershop.standard.services.SaleInvoiceService;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -75,7 +74,6 @@ public class SaleInvoiceServiceImpl implements SaleInvoiceService {
     public Response findAllByShopId(long shopId) {
         var invoiceList = saleInvoiceRepository.findAllByShop_ShopId(shopId);
         return getSuccessResponse(OK,"InvoiceList",invoiceList);
-
     }
 
     @Override
