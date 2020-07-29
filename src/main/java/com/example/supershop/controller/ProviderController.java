@@ -1,12 +1,12 @@
 package com.example.supershop.controller;
 
 import com.example.supershop.anotation.APiController;
+import com.example.supershop.anotation.DataValidation;
 import com.example.supershop.dto.request.CreateProviderRequest;
 import com.example.supershop.dto.respose.ProviderResponseDto;
 import com.example.supershop.dto.respose.Response;
 import com.example.supershop.model.Provider;
 import com.example.supershop.standard.services.ProviderService;
-import com.example.supershop.util.ResponseBuilder;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.internal.util.Callable;
 import org.springframework.http.ResponseEntity;
@@ -31,10 +31,8 @@ public class ProviderController {
     }
 
     @PostMapping(CREATE)
+    @DataValidation
     public ResponseEntity<Object> createProvider(@RequestBody CreateProviderRequest request, BindingResult bindingResult){
-        if (bindingResult.hasErrors()){
-            return ResponseEntity.badRequest().body(ResponseBuilder.getFailureResponse(bindingResult,"Validation Error!"));
-        }
         Response response = providerService.createProvider(request);
          return ResponseEntity.status((int) response.getStatusCode()).body(response);
     }

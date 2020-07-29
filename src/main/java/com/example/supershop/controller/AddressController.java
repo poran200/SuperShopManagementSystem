@@ -1,9 +1,9 @@
 package com.example.supershop.controller;
 
+import com.example.supershop.anotation.DataValidation;
 import com.example.supershop.dto.AddressDto;
 import com.example.supershop.dto.respose.Response;
 import com.example.supershop.standard.services.AddressService;
-import com.example.supershop.util.ResponseBuilder;
 import com.example.supershop.util.UrlConstrains;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -22,10 +22,8 @@ public class AddressController {
         this.addressService = addressService;
     }
     @PostMapping(UrlConstrains.AddressManagement.CREATE)
+    @DataValidation
     public Response create(@Valid @RequestBody AddressDto addressDto, BindingResult bindingResult){
-        if (bindingResult.hasFieldErrors()){
-            return ResponseBuilder.getFailureResponse(bindingResult,"Bean binding error");
-        }
         return addressService.save(addressDto);
     }
     @GetMapping(UrlConstrains.AddressManagement.FIND_BY_ID)

@@ -1,6 +1,7 @@
 package com.example.supershop.controller;
 
 
+import com.example.supershop.anotation.DataValidation;
 import com.example.supershop.dto.request.SalesInvoiceRequest;
 import com.example.supershop.model.Product;
 import com.example.supershop.model.SaleInvoiceLineItem;
@@ -9,6 +10,7 @@ import com.example.supershop.services.SalesService;
 import com.example.supershop.standard.services.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +32,8 @@ public class SalesController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> createInvoice(@Valid @RequestBody SalesInvoiceRequest invoiceRequest) {
+    @DataValidation
+    public ResponseEntity<Object> createInvoice(@Valid @RequestBody SalesInvoiceRequest invoiceRequest, BindingResult bindingResult) {
         List<SaleInvoiceLineItem> saleInvoiceLineItems = new ArrayList<>();
 
         System.out.println("invoiceRequest = " + invoiceRequest);

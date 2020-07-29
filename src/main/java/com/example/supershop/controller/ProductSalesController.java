@@ -1,10 +1,10 @@
 package com.example.supershop.controller;
 
 import com.example.supershop.anotation.APiController;
+import com.example.supershop.anotation.DataValidation;
 import com.example.supershop.dto.request.SalesInvoiceRequest;
 import com.example.supershop.dto.respose.Response;
 import com.example.supershop.standard.services.ProductSaleService;
-import com.example.supershop.util.ResponseBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,13 +26,8 @@ public class ProductSalesController {
     }
 
     @PostMapping(SalesManagement.CREATE_INVOICE)
+    @DataValidation
     public ResponseEntity<Object> createINovice(@Valid @RequestBody SalesInvoiceRequest request, BindingResult result){
-        System.out.println("request = " + request);
-         if (result.hasErrors()){
-             return ResponseEntity.badRequest().body(ResponseBuilder
-                     .getFailureResponse(result,"Validation error!"));
-         }
-
         Response response = productSaleService.createSaleInvoice(request);
          return ResponseEntity.status((int) response.getStatusCode()).body(response);
     }

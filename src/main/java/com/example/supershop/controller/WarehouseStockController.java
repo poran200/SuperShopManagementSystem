@@ -1,6 +1,7 @@
 package com.example.supershop.controller;
 
 import com.example.supershop.anotation.APiController;
+import com.example.supershop.anotation.DataValidation;
 import com.example.supershop.dto.request.CreateStockRequestDto;
 import com.example.supershop.dto.respose.Response;
 import com.example.supershop.standard.services.WarehouseStockService;
@@ -12,8 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-import static com.example.supershop.util.ResponseBuilder.getFailureResponse;
-
 @APiController
 @RequestMapping(UrlConstrains.WarehouseStockManagement.ROOT)
 public class WarehouseStockController {
@@ -23,10 +22,8 @@ public class WarehouseStockController {
         this.stockService = stockService;
     }
     @PostMapping(UrlConstrains.WarehouseStockManagement.CREATE)
+    @DataValidation
     public ResponseEntity<Response> create(@RequestBody @Valid CreateStockRequestDto requestDto , BindingResult result){
-        if (result.hasErrors()){
-            return ResponseEntity.badRequest().body(getFailureResponse(result,"Validation Error!"));
-         }
         var response = stockService.create(requestDto);
         return ResponseEntity.status((int) response.getStatusCode()).body(response);
     }

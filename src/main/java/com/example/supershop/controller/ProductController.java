@@ -1,11 +1,11 @@
 package com.example.supershop.controller;
 
 import com.example.supershop.anotation.APiController;
+import com.example.supershop.anotation.DataValidation;
 import com.example.supershop.dto.request.CreateProductRequestDto;
 import com.example.supershop.dto.respose.ProductResponseDto;
 import com.example.supershop.dto.respose.Response;
 import com.example.supershop.standard.services.ProductService;
-import com.example.supershop.util.ResponseBuilder;
 import com.example.supershop.util.UrlConstrains;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -31,13 +31,10 @@ public class ProductController {
     }
 
     @PostMapping(UrlConstrains.ProductManagement.CREATE)
+    @DataValidation
     public ResponseEntity<Object> createProduct(@Valid @RequestBody CreateProductRequestDto productRequestDto, BindingResult result){
-        if (result.hasFieldErrors()){
-            return ResponseEntity.badRequest().body(ResponseBuilder.getFailureResponse(result,"Bean validation error !"));
-        }else {
             Response response = productsService.save(productRequestDto);
             return  ResponseEntity.status((int) response.getStatusCode()).body(response);
-        }
     }
     @GetMapping(UrlConstrains.ProductManagement.FIND_BY_ID)
     public ResponseEntity<Response> findProduct(@PathVariable long id){
