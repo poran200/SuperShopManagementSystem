@@ -82,7 +82,7 @@ public final class UrlConstrains {
     }
 
     public static class CategoryManagement {
-        public CategoryManagement() { }
+        private CategoryManagement() { }
         public static final String  ROOT = API+VERSION+"/category";
         public static final String  CREATE ="";
         public static final String FIND_BY_ID ="/{id}";
@@ -91,5 +91,16 @@ public final class UrlConstrains {
         public static final String ALL_BY_PAGE = "/categories";
         public static final String DELETE = "/{id}";
 
+    }
+
+    public static class EmployeeManagement {
+        private EmployeeManagement() { }
+        public static final String  ROOT = API+VERSION+"/employee";
+        public static final String  CREATE ="";
+        public static final String FIND_BY_ID ="/{id}";
+        public static final String FIND_BY_NAME ="/{name}";
+        public static final String UPDATE= "/{id}";
+        public static final String ALL_BY_PAGE = "/employees";
+        public static final String DELETE = "/{id}";
     }
 }

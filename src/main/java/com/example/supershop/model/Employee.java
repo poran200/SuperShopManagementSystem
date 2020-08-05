@@ -18,6 +18,7 @@ import java.util.*;
 @Entity
 public class Employee extends BaseModel implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Embedded
     private Name name;

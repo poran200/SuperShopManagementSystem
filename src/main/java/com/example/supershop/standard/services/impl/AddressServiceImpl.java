@@ -52,12 +52,12 @@ public class  AddressServiceImpl implements AddressService {
              optionalAddress.get().setIsActive(false);
             Address address = addressRepository.save(optionalAddress.get());
             if (isSave(address)){
-                return ResponseBuilder.getSuccessResponse(HttpStatus.OK,"optionalAddress deleted successfully Id: "+id,null);
+                return ResponseBuilder.getSuccessResponse(HttpStatus.OK,"Address deleted successfully Id: "+id,null);
             }else {
                 return ResponseBuilder.getFailureResponse(HttpStatus.INTERNAL_SERVER_ERROR,"Internal server error");
             }
         }
-        return ResponseBuilder.getFailureResponse(HttpStatus.NOT_FOUND,"optionalAddress not found "+ id);
+        return ResponseBuilder.getFailureResponse(HttpStatus.NOT_FOUND,"Address not found "+ id);
     }
 
     private boolean isSave(Address saveAddress) {
