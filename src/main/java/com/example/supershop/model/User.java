@@ -1,5 +1,6 @@
 package com.example.supershop.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,10 +17,9 @@ public class User extends BaseModel {
     @Id
     private long userId;
     private String username;
+    @JsonIgnore
     private String password;
-    @OneToMany( fetch = FetchType.LAZY ,cascade = {CascadeType.PERSIST,CascadeType.MERGE,
-            CascadeType.DETACH,CascadeType.REFRESH})
-    @JoinColumn(name = "user_id")
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Role> roles;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id")
