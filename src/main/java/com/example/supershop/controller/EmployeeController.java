@@ -41,7 +41,7 @@ public class EmployeeController {
     }
     @PutMapping(EmployeeManagement.UPDATE)
     @DataValidation
-    public ResponseEntity<Object> update(@PathVariable long id,@RequestBody EmployeeDto dto,BindingResult bindingResult){
+    public ResponseEntity<Object> update(@PathVariable long id, @RequestBody EmployeeDto dto, BindingResult bindingResult){
         var response = employeeService.update(id, dto);
         return ResponseEntity.status((int) response.getStatusCode()).body(response);
     }

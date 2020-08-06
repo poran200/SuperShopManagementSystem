@@ -36,7 +36,7 @@ public class EmployeeDto {
     private String position;
     @Valid
     @NotNull
-    private AddressDto addressDto;
+    private AddressDto address;
     private Employee manager;
     private Set<Employee> subordinates;
     @Data

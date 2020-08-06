@@ -42,7 +42,7 @@ public class Employee extends BaseModel implements Serializable {
     @JoinColumn(name = "manager_id")
     private Employee manager;
 
-    @OneToMany(mappedBy = "manager",fetch = FetchType.LAZY,cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "manager",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Employee> subordinates;
     public void add(Employee employee){
         if (subordinates == null){
@@ -55,6 +55,9 @@ public class Employee extends BaseModel implements Serializable {
          this.subordinates.remove(employee);
     }
 
+    public void  addPhoneNumber(String number){
+        this.phoneNumber.add(number);
+    }
     public Employee(Employee employee) {
         this.name= employee.name;
         this.dateOfBirth = employee.dateOfBirth;
@@ -64,17 +67,17 @@ public class Employee extends BaseModel implements Serializable {
         this.address= employee.address;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", name=" + name +
-                ", dateOfBirth=" + dateOfBirth +
-                ", email='" + email + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                ", joinDate=" + joinDate +
-                ", gender=" + gender +
-                ", position='" + position + '\'' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Employee{" +
+//                "id=" + id +
+//                ", name=" + name +
+//                ", dateOfBirth=" + dateOfBirth +
+//                ", email='" + email + '\'' +
+//                ", phoneNumber=" + phoneNumber +
+//                ", joinDate=" + joinDate +
+//                ", gender=" + gender +
+//                ", position='" + position + '\'' +
+//                '}';
+//    }
 }

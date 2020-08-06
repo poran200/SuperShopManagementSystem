@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.Date;
 import java.util.List;
 @SpringBootTest
-class EmployeeServiceTest {
+class EmployeeDtoServiceTest {
 
     @Autowired
     private EmployeeService employeeService;

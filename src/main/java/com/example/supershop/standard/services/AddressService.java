@@ -12,5 +12,5 @@ public interface AddressService {
     Response  getById(Long Id);
     Response getAll();
     Response getAll(Pageable pageable);
-   Response getAllByAddressIsActiveTrue(Pageable pageable);
+    Response getAllByAddressIsActiveTrue(Pageable pageable);
 }

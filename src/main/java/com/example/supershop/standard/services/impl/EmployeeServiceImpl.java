@@ -30,13 +30,17 @@ public class EmployeeServiceImpl implements EmployeeService {
         this.addressRepository = addressRepository;
     }
 
+    private void mapping(){
+        modelMapper.getConfiguration().setPropertyCondition(Conditions.isNotNull());
+        modelMapper.createTypeMap(EmployeeDto.class, Employee.class)
+                .addMapping(EmployeeDto::getName, Employee::setName)
+                .addMapping(EmployeeDto::getAddress, Employee::setAddress)
+                .addMapping(EmployeeDto::getManager, Employee::setManager);
+     }
+
     @Override
     public Response create(EmployeeDto dto) {
         log.info("employee dto: "+dto );
-        modelMapper.getConfiguration().setPropertyCondition(Conditions.isNotNull());
-        modelMapper.createTypeMap(EmployeeDto.class,Employee.class)
-                   .addMapping(EmployeeDto::getName,Employee::setName)
-                   .addMapping(EmployeeDto::getManager,Employee::setManager);
             try {
                 var employee = modelMapper.map(dto, Employee.class);
                 log.info("employee object after convert: "+employee);
@@ -48,16 +52,14 @@ public class EmployeeServiceImpl implements EmployeeService {
             log.error(e.getMessage());
              return getInternalServerError();
             }
-
-
-
     }
 
     @Override
     public Response findById(long id) {
-       return employeeRepository.findByIdAndIsActiveTrue(id).map(employee ->
+        var optionalEmployee = employeeRepository.findByIdAndIsActiveTrue(id);
+          return optionalEmployee .map(employee ->
                getSuccessResponse(HttpStatus.OK,"employee found",
-                       modelMapper.map(employee,EmployeeDto.class)))
+                       modelMapper.map(employee, EmployeeDto.class)))
                .orElse(getFailureResponse(HttpStatus.NOT_FOUND,"employee not found"));
 
     }
@@ -74,9 +76,15 @@ public class EmployeeServiceImpl implements EmployeeService {
         var employeeOptional = employeeRepository.findById(id);
         if (employeeOptional.isPresent()){
             var employee = employeeOptional.get();
-          employee =  modelMapper.map(dto,Employee.class);
-            var updateEmployee = employeeRepository.save(employee);
-            return getSuccessResponse(HttpStatus.OK,"employee updated ",updateEmployee);
+             var editEmployee =  modelMapper.map(dto,Employee.class);
+            var address = editEmployee.getAddress();
+
+             editEmployee.setId(employee.getId());
+             address.setId(employee.getAddress().getId());
+             editEmployee.setAddress(address);
+            var updateEmployee = employeeRepository.save(editEmployee);
+            return getSuccessResponse(HttpStatus.OK,"employee updated ",
+                    modelMapper.map(updateEmployee,EmployeeDto.class));
         }
         return getFailureResponse(HttpStatus.NOT_FOUND,"employee not found Id: "+id);
     }
