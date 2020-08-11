@@ -104,7 +104,7 @@ class ProductsServiceTest {
         Name name = faker.name();
         Book book = faker.book();
         String productName = faker.commerce().productName();
-        Category category = categoryRepository.getOne(4L);
+        Category category = categoryRepository.getOne(1L);
         List<Product> products= new ArrayList<>();
          long idStart =50;
         for (int i = 0; i < 50; i++) {

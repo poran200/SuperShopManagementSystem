@@ -11,7 +11,10 @@
       <user-name>root</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema" qname="supershopmanagementsystem" />
+          <node kind="schema">
+            <name qname="supershopmanagementsystem" />
+            <name qname="ssms" />
+          </node>
         </introspection-scope>
       </schema-mapping>
     </data-source>
@@ -28,6 +31,12 @@
           <node kind="schema" qname="@" />
         </introspection-scope>
       </schema-mapping>
+    </data-source>
+    <data-source name="@localhost [3]" uuid="628550a5-5684-4b08-903d-75f61f3b1207">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-mapping />
     </data-source>
   </component>
 </project>

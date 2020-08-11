@@ -1,7 +1,6 @@
 package com.example.supershop.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +23,7 @@ public class Stock extends BaseModel implements Serializable {
     private long stockId;
     private  int quantity;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = "sockList")
+    @JsonIgnoreProperties(value = "category")
     private Product product;
 
     @OneToOne(fetch = FetchType.LAZY)

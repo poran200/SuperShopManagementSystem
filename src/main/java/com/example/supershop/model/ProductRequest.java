@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import static javax.persistence.CascadeType.*;
@@ -29,6 +30,13 @@ public class ProductRequest extends BaseModel implements Serializable {
     private Shop requestShop;
     @OneToOne
     private WareHouse wareHouse;
+    public void addItem(RequestLineItem lineItem){
+        if (requestLineItems == null){
+            requestLineItems = new ArrayList<>();
+        }
+        lineItem.setProductRequest(this);
+        requestLineItems.add(lineItem);
+    }
 
     @Override
     public String toString() {

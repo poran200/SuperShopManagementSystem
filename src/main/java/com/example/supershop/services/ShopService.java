@@ -44,9 +44,10 @@ public class ShopService {
             Address address = addressRepository.save(shop.getShopAddress());
             shop.setShopAddress(address);
         }
-//             addressRepository.save(shop.getEmployee().getAddress());
-//             employeeRepository.save(shop.getEmployee());
-            return shopRepository.save(shop);
+             addressRepository.save(shop.getEmployee().getAddress());
+        var employee = employeeRepository.save(shop.getEmployee());
+        shop.setEmployee(employee);
+        return shopRepository.save(shop);
     }
     public List<Shop> findAllShop(){
         return shopRepository.findAll();

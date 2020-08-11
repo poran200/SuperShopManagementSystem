@@ -27,7 +27,7 @@ class WareHouseServiceImplTest {
     @Test
     void create() {
         WareHouse wareHouse = new WareHouse();
-        wareHouse.setName("comilla sason para");
+        wareHouse.setName("comilla sasongasa para");
         wareHouse.setAddress(new Address("sasongasa ","noapara  rode 23"));
         var response = wareHouseService.create(wareHouse);
         assertEquals(201,response.getStatusCode());

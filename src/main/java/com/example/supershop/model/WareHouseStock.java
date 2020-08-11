@@ -1,5 +1,6 @@
 package com.example.supershop.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,7 +20,9 @@ public class WareHouseStock extends BaseModel implements Serializable {
     private long stockId;
     private int quantity;
     @OneToOne
+    @JsonIgnoreProperties(value = "category")
     private Product product;
     @OneToOne
+    @JsonIgnoreProperties({"products","address","manager"})
     private WareHouse wareHouse;
 }

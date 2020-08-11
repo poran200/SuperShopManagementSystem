@@ -1,21 +1,25 @@
 package com.example.supershop.services;
 
+import com.example.supershop.enam.Gender;
 import com.example.supershop.exception.EntityAlreadyExistException;
 import com.example.supershop.exception.EntityNotFoundException;
 import com.example.supershop.model.Address;
-import com.example.supershop.model.Product;
+import com.example.supershop.model.Employee;
+import com.example.supershop.model.Name;
 import com.example.supershop.model.Shop;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 class ShopServiceTest {
@@ -33,13 +37,13 @@ class ShopServiceTest {
     void createShop() throws EntityAlreadyExistException {
         Shop shop = new Shop(103,"Comilla-2",null,null,null);
         shop.setShopAddress(new Address("comilla","Dormopur road no -20"));
-//        Name name = new Name("poran","chowdury");
-//        Address address = new Address(2, "dhaka", "nikonjo");
-//        List<String> list = new ArrayList<>();
-//        list.add("01757414897");
-//        Employee employee  = new Employee(2001, name, new Date(), "p@email.com",list,new Date(),
-//                Gender.MALE, "accountant", address, null, null);
-//        shop.setEmployee(employee);
+        Name name = new Name("poran","chowdury");
+        Address address = new Address( "dhaka", "nikonjo");
+        List<String> list = new ArrayList<>();
+        list.add("01757414897");
+        Employee employee  = new Employee(2001, name, new Date(), "p@email.com",list,new java.util.Date(),
+                Gender.MALE, "accountant", address, null, null);
+        shop.setEmployee(employee);
         Shop saveShop = shopService.createShop(shop);
         assertEquals(saveShop.getShopId(),shop.getShopId());
         assertEquals(saveShop.getShopName(), shop.getShopName());

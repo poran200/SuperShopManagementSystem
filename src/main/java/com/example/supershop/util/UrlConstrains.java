@@ -103,4 +103,17 @@ public final class UrlConstrains {
         public static final String ALL_BY_PAGE = "/employees";
         public static final String DELETE = "/{id}";
     }
+
+    public  static class ProductRequestManagement {
+        public ProductRequestManagement() { }
+        public static final String  ROOT = API+VERSION+"/request";
+        public static final String  CREATE ="";
+        public static final String FIND_BY_ID ="/{id}";
+        public static final String FIND_BY_ShopId ="/shop/{id}";
+        public static final String FIND_BY_WarehouseId ="/warehouseId/{id}";
+        public static final String FIND_BY_NAME ="/{name}";
+        public static final String UPDATE= "/{id}";
+        public static final String ALL_BY_PAGE = "/pages";
+        public static final String DELETE = "/{id}";
+    }
 }

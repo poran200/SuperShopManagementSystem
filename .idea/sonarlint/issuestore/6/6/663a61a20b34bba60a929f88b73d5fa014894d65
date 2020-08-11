@@ -1,4 +1,6 @@
 
+k
+java:S1192V"NUse already-defined constant 'CATEGORY' instead of duplicating its value here.(¹è¡Ç8‹Ò³ï».
 {	java:S115."ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ËŽŽ»øÿÿÿÿ8Î°ÿß°.
 v	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Àú¶¼8í¬òÛ°.
 s
