@@ -1,5 +1,6 @@
 package com.example.supershop.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,14 +13,17 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class RequestLineItem extends BaseModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @OneToOne
+    @JsonIgnoreProperties({"category","price","vat","expireDate"})
     private Product product;
     private  int quantity;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnoreProperties({"requestLineItems"})
     private ProductRequest productRequest;
 
     @Override
