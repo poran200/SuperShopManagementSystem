@@ -1,5 +1,6 @@
 package com.example.supershop.standard.services;
 
+import com.example.supershop.dto.request.StockDto;
 import com.example.supershop.dto.respose.Response;
 import com.example.supershop.exception.StockNOtAvailabelException;
 import com.example.supershop.model.Stock;
@@ -12,5 +13,8 @@ public interface ShopStockService {
     Response  updateStock(long shopID,long productId,Stock stock);
     Stock     updateStock(long shopId,long productId,int quantity) throws StockNOtAvailabelException;
     Stock updateStock(long stockId, int quantity);
+
     Stock findByShopIdAndProductId(long shopId, long productId);
+
+    Response createStock(StockDto stockDto);
 }

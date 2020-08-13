@@ -27,11 +27,20 @@ public class Stock extends BaseModel implements Serializable {
     private Product product;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties({"productList","shopAddress","employee"})
+    @JsonIgnoreProperties({"productList", "shopAddress", "employee"})
     private Shop shop;
 
-    public Stock( int quantity) {
+    public Stock(int quantity) {
         this.quantity = quantity;
     }
 
+    @Override
+    public String toString() {
+        return "Stock{" +
+                "stockId=" + stockId +
+                ", quantity=" + quantity +
+                ", product=" + product.getProductId() +
+                ", shop=" + shop.getShopId() +
+                '}';
+    }
 }
