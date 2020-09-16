@@ -25,17 +25,20 @@ public class WarehouseController {
         return ResponseEntity.status((int) response.getStatusCode()).body(response);
     }
     @GetMapping(WarehouseManagement.FIND_BY_ID)
-    public ResponseEntity<Object> findById(@PathVariable long id){
+    public ResponseEntity<Object> findById(@PathVariable long id) {
         var re = wareHouseService.getByIdAndIsActiveTrue(id);
         return ResponseEntity.status((int) re.getStatusCode()).body(re);
     }
+
     @GetMapping(WarehouseManagement.ALL_BY_PAGE)
-    public ResponseEntity<Object> findAllByPage(Pageable pageable){
+//    @PageAbleData
+    public ResponseEntity<Object> findAllByPage(@RequestParam(required = false) Pageable pageable) {
         var response = wareHouseService.getAllAndIsActiveTrue(pageable);
         return ResponseEntity.status((int) response.getStatusCode()).body(response);
     }
+
     @GetMapping(WarehouseManagement.FIND_BY_NAME)
-    public ResponseEntity<Object> findByName(@PathVariable String name ){
+    public ResponseEntity<Object> findByName(@PathVariable String name) {
         var response = wareHouseService.getByName(name);
         return ResponseEntity.status((int) response.getStatusCode()).body(response);
     }

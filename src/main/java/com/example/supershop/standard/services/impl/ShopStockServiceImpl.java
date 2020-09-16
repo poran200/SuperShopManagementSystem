@@ -9,6 +9,7 @@ import com.example.supershop.repository.ProductRepository;
 import com.example.supershop.repository.ShopRepository;
 import com.example.supershop.repository.StockRepository;
 import com.example.supershop.standard.services.ShopStockService;
+import com.example.supershop.util.ResponseBuilder;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.Conditions;
 import org.modelmapper.ModelMapper;
@@ -27,7 +28,8 @@ public class ShopStockServiceImpl implements ShopStockService {
     private final ProductRepository productRepository;
     private final ModelMapper modelMapper;
 
-    public ShopStockServiceImpl(StockRepository stockRepository, ShopRepository shopRepository, ProductRepository productRepository, ModelMapper modelMapper) {
+    public ShopStockServiceImpl(StockRepository stockRepository, ShopRepository shopRepository,
+                                ProductRepository productRepository, ModelMapper modelMapper) {
         this.stockRepository = stockRepository;
         this.shopRepository = shopRepository;
         this.productRepository = productRepository;
@@ -37,7 +39,7 @@ public class ShopStockServiceImpl implements ShopStockService {
     @Override
     public Response createStock(long shopId, long productId, Stock stock) {
         var shop = shopRepository.findById(shopId);
-        if (shop.isPresent()){
+        if (shop.isPresent()) {
             stock.setShop(shop.get());
             var optionalProduct = productRepository.findByProductIdAndIsActiveTrue(productId);
             if (optionalProduct.isPresent()){
@@ -142,7 +144,22 @@ public class ShopStockServiceImpl implements ShopStockService {
                 "stock already exist id: " + optionalStock.get().getStockId());
     }
 
-    private void maping() {
+    @Override
+    public Response updateStock(StockDto stockDto) {
+        var stockOptional = stockRepository
+                .findByStockIdAndIsActiveTrueAndShop_ShopIdAndProduct_ProductId(stockDto.getStockId(),
+                        stockDto.getShop().getShopId(), stockDto.getProduct().getProductId());
+        if (stockOptional.isPresent()) {
+            var stock = modelMapper.map(stockDto, Stock.class);
+            stock.setStockId(stockOptional.get().getStockId());
+            var updateStock = stockRepository.save(stock);
+            return ResponseBuilder.getSuccessResponse(HttpStatus.OK, "stock updated", updateStock);
+        }
+        return ResponseBuilder.getFailureResponse(HttpStatus.NOT_FOUND,
+                "Stock not found Id: " + stockDto.getStockId());
+    }
+
+    private void mapping() {
         modelMapper.getConfiguration().setPropertyCondition(Conditions.isNotNull());
         modelMapper.createTypeMap(StockDto.class, Stock.class)
                 .addMapping(StockDto::getProduct, Stock::setProduct)

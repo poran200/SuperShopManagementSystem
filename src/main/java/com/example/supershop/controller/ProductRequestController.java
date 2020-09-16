@@ -2,6 +2,7 @@ package com.example.supershop.controller;
 
 import com.example.supershop.anotation.APiController;
 import com.example.supershop.anotation.DataValidation;
+import com.example.supershop.anotation.PageAbleData;
 import com.example.supershop.dto.request.ProductRequestDto;
 import com.example.supershop.model.ProductRequest;
 import com.example.supershop.standard.services.ProductRequestService;
@@ -39,6 +40,7 @@ public class ProductRequestController {
     }
 
     @GetMapping(ProductRequestManagement.ALL_BY_PAGE)
+    @PageAbleData
     public ResponseEntity<Object> findAllByPage(@RequestParam(required = false) Pageable pageable) {
         var response = productRequestService.findAllByPage(pageable);
         return ResponseEntity.status((int) response.getStatusCode()).body(response);

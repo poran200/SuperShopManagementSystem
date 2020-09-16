@@ -13,8 +13,13 @@ import java.util.Optional;
 @Repository
 @RepositoryRestResource
 public interface StockRepository extends JpaRepository<Stock, Long> {
+    Optional<Stock> findByStockIdAndIsActiveTrue(long id);
 
-    Page<?> findAllByShopShopId( long id,Pageable pageable);
-    Optional<Stock> findByShop_ShopIdAndProduct_ProductId(long shopId,long productId);
-    List<Stock>findAllByIsActiveTrueAndQuantityLessThan(int quantity);
+    Page<?> findAllByShopShopId(long id, Pageable pageable);
+
+    Optional<Stock> findByShop_ShopIdAndProduct_ProductId(long shopId, long productId);
+
+    Optional<Stock> findByStockIdAndIsActiveTrueAndShop_ShopIdAndProduct_ProductId(long stockId, long shopId, long productId);
+
+    List<Stock> findAllByIsActiveTrueAndQuantityLessThan(int quantity);
 }

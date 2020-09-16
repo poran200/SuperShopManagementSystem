@@ -46,16 +46,16 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public Response getById(long id) {
           var optionalCategory = categoryRepository.findByIdAndIsActiveTrue(id);
-            return optionalCategory .map(category -> getSuccessResponse(HttpStatus.OK,"category found",
-                    modelMapper.map(category,CategoryDto.class)
-                    ))
+            return optionalCategory .map(category -> getSuccessResponse(HttpStatus.OK, "category found",
+                    modelMapper.map(category, CategoryDto.class)))
                .orElse(getFailureResponse(HttpStatus.NOT_FOUND,"category not found"));
     }
 
     @Override
     public Response getAllByPage(Pageable pageable) {
-        var page = categoryRepository.findAll(pageable);
-        return getSuccessResponsePage(HttpStatus.OK,"Category page",page);
+        var page = categoryRepository.findAll(pageable)
+                .map(category -> modelMapper.map(category, CategoryDto.class));
+        return getSuccessResponsePage(HttpStatus.OK, "Category page", page);
     }
 
     @Override
@@ -96,7 +96,8 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Response getByCategoryName(String name,Pageable pageable) {
-        var categoryList = categoryRepository.getCategoriesByCategoryName(name,pageable);
-        return getSuccessResponseList(HttpStatus.OK,"list of category by name",categoryList,categoryList.size());
+        var page = categoryRepository.getCategoriesByCategoryNameContains(name, pageable)
+                .map(category -> modelMapper.map(category, CategoryDto.class));
+        return getSuccessResponsePage(HttpStatus.OK, "list of category by name", page);
     }
 }

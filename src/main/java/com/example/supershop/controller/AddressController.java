@@ -1,6 +1,7 @@
 package com.example.supershop.controller;
 
 import com.example.supershop.anotation.DataValidation;
+import com.example.supershop.anotation.PageAbleData;
 import com.example.supershop.dto.AddressDto;
 import com.example.supershop.dto.respose.Response;
 import com.example.supershop.standard.services.AddressService;
@@ -40,7 +41,9 @@ public class AddressController {
     public ResponseEntity<Response> geAll(){
         return ResponseEntity.ok(addressService.getAll());
     }
+
     @GetMapping(UrlConstrains.AddressManagement.PAGE)
+    @PageAbleData
     public ResponseEntity<Response> geAllByPage(Pageable pageable){
         return ResponseEntity.ok(addressService.getAllByAddressIsActiveTrue(pageable));
     }
