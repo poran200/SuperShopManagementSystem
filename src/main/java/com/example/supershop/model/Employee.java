@@ -40,9 +40,11 @@ public class Employee extends BaseModel implements Serializable {
 
     @ManyToOne( fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_id")
+//    @JsonIgnoreProperties({"manager","subordinates"})
     private Employee manager;
 
     @OneToMany(mappedBy = "manager",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//    @JsonIgnore
     private Set<Employee> subordinates;
     public void add(Employee employee){
         if (subordinates == null){

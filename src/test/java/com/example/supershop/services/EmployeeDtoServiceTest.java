@@ -24,12 +24,13 @@ class EmployeeDtoServiceTest {
     Address address = new Address( "dhaka", "nikonjo");
     List<String> list = List.of("01757414897");
 
-    Employee employee  = new Employee(2001, name, new Date(), "p@email.com",list,new Date(),
+    Employee employee = new Employee(2001, name, new Date(), "p@email.com", list, new Date(),
             Gender.MALE, "accountant", address, null, null);
-    Employee employee2  = new Employee(2002, name2, new Date(), "i@email.com",list,new Date(),
-            Gender.MALE, "manager", address, employee, null);
+    Employee employee2 = new Employee(2002, name2, new Date(), "i@email.com", list, new Date(),
+            Gender.MALE, "manager", address, null, null);
     @Test
     void update() {
-//        employeeService.update(2002,employee2);
+        employeeRepository.save(employee2);
+        //        employeeService.update(2002,employee2);
     }
 }

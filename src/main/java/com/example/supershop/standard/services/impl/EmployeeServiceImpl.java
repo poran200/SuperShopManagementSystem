@@ -1,6 +1,8 @@
 package com.example.supershop.standard.services.impl;
 
+import com.example.supershop.controller.EmployeeController;
 import com.example.supershop.dto.request.EmployeeDto;
+import com.example.supershop.dto.respose.EmployeeResponseDto;
 import com.example.supershop.dto.respose.Response;
 import com.example.supershop.model.Employee;
 import com.example.supershop.repository.AddressRepository;
@@ -15,6 +17,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import static com.example.supershop.util.ResponseBuilder.*;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Service("EmployeeService")
 @Log4j2
@@ -57,10 +61,21 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Response findById(long id) {
         var optionalEmployee = employeeRepository.findByIdAndIsActiveTrue(id);
-          return optionalEmployee .map(employee ->
-               getSuccessResponse(HttpStatus.OK,"employee found",
-                       modelMapper.map(employee, EmployeeDto.class)))
-               .orElse(getFailureResponse(HttpStatus.NOT_FOUND,"employee not found"));
+        if (optionalEmployee.isPresent()) {
+            var responseDto = modelMapper.map(optionalEmployee.get(), EmployeeResponseDto.class);
+            var manager = optionalEmployee.get().getManager();
+            if (manager != null) {
+                responseDto.add(linkTo(methodOn(EmployeeController.class)
+                        .getById(manager.getId())).withRel("manager"));
+            }
+            return getSuccessResponse(HttpStatus.OK, "employee found", responseDto);
+        } else {
+            return getFailureResponse(HttpStatus.NOT_FOUND, "employee not found Id: " + id);
+        }
+//        return optionalEmployee .map(employee ->
+//               getSuccessResponse(HttpStatus.OK,"employee found",
+//                       modelMapper.map(employee, EmployeeResponseDto.class)))
+//               .orElse(getFailureResponse(HttpStatus.NOT_FOUND,"employee not found"));
 
     }
 
@@ -99,3 +114,5 @@ public class EmployeeServiceImpl implements EmployeeService {
         return getFailureResponse(HttpStatus.NOT_FOUND,"Employee not found Id: "+id);
     }
 }
+
+//todo add all necessary on rest full api
