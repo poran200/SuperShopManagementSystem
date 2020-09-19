@@ -1,5 +1,8 @@
 package com.example.supershop.standard.services.impl;
 
+import com.example.supershop.controller.ProductRequestController;
+import com.example.supershop.controller.ShopController;
+import com.example.supershop.controller.WarehouseController;
 import com.example.supershop.dto.request.ProductRequestDto;
 import com.example.supershop.dto.respose.Response;
 import com.example.supershop.model.ProductRequest;
@@ -10,12 +13,18 @@ import com.example.supershop.standard.services.ProductRequestService;
 import com.example.supershop.util.ResponseBuilder;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+
 import static com.example.supershop.util.ResponseBuilder.*;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Log4j2
 @Service("ProductRequestService")
@@ -39,33 +48,43 @@ public class ProductRequestServiceImpl implements ProductRequestService {
         var productRequest = modelMapper.map(productRequestDto, ProductRequest.class);
         productRequest.addItem(productRequestDto.getRequestLineItems());
         var save = productRequestRepository.save(productRequest);
-        return ResponseBuilder.getSuccessResponse(HttpStatus.CREATED, "created", modelMapper.map(save, ProductRequestDto.class));
+        return ResponseBuilder.getSuccessResponse(HttpStatus.CREATED, "created", productRequestDto);
     }
 
     @Override
+    @Transactional
     public Response findById(long id) {
         var productRequest = productRequestRepository.findByAndRequestIdAndIsActiveTrue(id);
+//                .map(productRequest1 -> modelMapper.map(productRequest1,ProductRequestDto.class));
+        var requestDto = modelMapper.map(productRequest, ProductRequestDto.class);
         return productRequest.map(request -> getSuccessResponse(HttpStatus.OK, "product request",
-                modelMapper.map(request, ProductRequestDto.class)))
+                addLink(requestDto, productRequest.get().getRequestShop().getShopId(),
+                        productRequest.get().getWareHouse().getWarehouseId())))
                 .orElse(getFailureResponse(HttpStatus.NOT_FOUND, "request not found"));
     }
 
     @Override
     public Response findAllByPage(Pageable pageable) {
         var page = productRequestRepository.findAll(pageable);
-        return getSuccessResponsePage(HttpStatus.OK, "page", page);
+        return getSuccessResponsePage(HttpStatus.OK, "page",
+                getpagewithLink(page, page.getPageable()));
     }
+
 
     @Override
     public Response findByShopId(long shopId, Pageable pageable) {
         var requests = productRequestRepository.findAllByIsActiveTrueAndRequestShopShopId(shopId, pageable);
-        return getSuccessResponsePage(HttpStatus.OK, "shop request page", requests);
+        return getSuccessResponsePage(HttpStatus.OK, "shop request page",
+                getpagewithLink(requests, requests.getPageable()));
     }
+
 
     @Override
     public Response findByWarehouseId(long warehouseId, Pageable pageable) {
-        var productRequests = productRequestRepository.findAllByIsActiveTrueAndWareHouseWarehouseId(warehouseId, pageable);
-        return getSuccessResponsePage(HttpStatus.OK, "page found", productRequests);
+        var productRequests = productRequestRepository
+                .findAllByIsActiveTrueAndWareHouseWarehouseId(warehouseId, pageable);
+        return getSuccessResponsePage(HttpStatus.OK, "page found",
+                getpagewithLink(productRequests, productRequests.getPageable()));
     }
 
     @Override
@@ -75,7 +94,9 @@ public class ProductRequestServiceImpl implements ProductRequestService {
             editRequest.setRequestId(request.get().getRequestId());
             editRequest.addItem(editRequest.getRequestLineItems());
             var save = productRequestRepository.save(editRequest);
-            return getSuccessResponse(HttpStatus.OK, "Updated request", save);
+            var dto = modelMapper.map(save, ProductRequestDto.class);
+            return getSuccessResponse(HttpStatus.OK, "Updated request",
+                    addLink(dto, save.getRequestShop().getShopId(), save.getWareHouse().getWarehouseId()));
         }
         return getFailureResponse(HttpStatus.NOT_FOUND, "not found");
     }
@@ -90,5 +111,30 @@ public class ProductRequestServiceImpl implements ProductRequestService {
         }
         return getFailureResponse(HttpStatus.NOT_FOUND, "not found Id: " + id);
     }
+
+    /**
+     * add shop link
+     * add warehouse link
+     */
+    private ProductRequestDto addLink(ProductRequestDto request, long shopId, long warehouseId) {
+        var requestDto = modelMapper.map(request, ProductRequestDto.class);
+        requestDto.add(linkTo(methodOn(ProductRequestController.class).findById(request.getRequestId())).withSelfRel());
+        requestDto.add(linkTo(methodOn(ShopController.class).getBYId(shopId)).withRel("shop"));
+        requestDto.add(linkTo(methodOn(WarehouseController.class)
+                .findById(warehouseId)).withRel("wareHouse"));
+        return requestDto;
+    }
+
+    private Page<ProductRequestDto> getpagewithLink(Page<ProductRequest> page, Pageable pageable) {
+        var dtoList = new ArrayList<ProductRequestDto>();
+        for (ProductRequest productRequest : page.getContent()) {
+            var productRequestDto = addLink(modelMapper.map(productRequest, ProductRequestDto.class),
+                    productRequest.getRequestShop().getShopId(),
+                    productRequest.getWareHouse().getWarehouseId());
+            dtoList.add(productRequestDto);
+        }
+        return new PageImpl<>(dtoList, pageable, dtoList.size());
+    }
+
 
 }

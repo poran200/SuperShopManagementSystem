@@ -131,4 +131,16 @@ public final class UrlConstrains {
         public static final String ALL_BY_PAGE = "/stocks/{shopId}";
         public static final String DELETE = "/{id}";
     }
+
+    public static class ShopManagement {
+        private ShopManagement() {
+        }
+
+        public static final String ROOT = API + VERSION + "/shop";
+        public static final String CREATE = "";
+        public static final String FIND_BY_ID = "/{id}";
+        public static final String UPDATE = "/{id}";
+        public static final String ALL_BY_PAGE = "/shops";
+        public static final String DELETE = "/{id}";
+    }
 }

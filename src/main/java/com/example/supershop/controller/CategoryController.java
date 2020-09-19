@@ -78,6 +78,8 @@ public class CategoryController {
         CategoryDto categoryDto = (CategoryDto) dto;
         categoryDto.add(linkTo(methodOn(CategoryController.class)
                 .findById(categoryDto.getId())).withSelfRel());
+        categoryDto.add(linkTo(methodOn(ProductController.class)
+                .getProductByPage(categoryDto.getId(), 0, 10)).withRel("products"));
         if (categoryDto.getSubCategory() != null) {
             categoryDto.add(linkTo(methodOn(CategoryController.class)
                     .findById(categoryDto.getSubCategory().getId())).withRel("subCategory"));

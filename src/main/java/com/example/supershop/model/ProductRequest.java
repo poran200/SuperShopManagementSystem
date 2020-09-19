@@ -31,10 +31,10 @@ public class ProductRequest extends BaseModel implements Serializable {
     private boolean isAccept;
     private String status;
     private int totalItem;
-    @OneToOne(cascade = ALL)
+    @OneToOne(cascade = ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private Shop requestShop;
-    @OneToOne(cascade = ALL)
+    @OneToOne(cascade = ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private WareHouse wareHouse;
     public void addItem(List<RequestLineItem> lineItem){

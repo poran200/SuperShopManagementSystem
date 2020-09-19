@@ -50,9 +50,10 @@ public class ProductController {
     }
 
 
-    @GetMapping(value = UrlConstrains.ProductManagement.CATEGORY+"/{id}",params = {"page","size"})
+    @GetMapping(value = UrlConstrains.ProductManagement.CATEGORY + "/{id}", params = {"page", "size"})
     public ResponseEntity<Response> getProductByPage(@PathVariable long id,
-                                                     @RequestParam("page") int page,@RequestParam("size") int size ) {
+                                                     @RequestParam(value = "page", defaultValue = "0") int page,
+                                                     @RequestParam(value = "size", defaultValue = "10") int size) {
         if (size == 0) {
             size = 10;
         }

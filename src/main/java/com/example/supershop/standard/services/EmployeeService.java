@@ -10,4 +10,6 @@ public interface EmployeeService {
     Response findAllByPage(Pageable pageable);
     Response update(long id , EmployeeDto dto);
     Response delete(long id);
+
+    Response findEmployeeByPosition(String position, Pageable pageable);
 }

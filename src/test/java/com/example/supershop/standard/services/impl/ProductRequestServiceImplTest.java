@@ -1,7 +1,5 @@
 package com.example.supershop.standard.services.impl;
 
-import com.example.supershop.dto.request.ProductRequestDto;
-import com.example.supershop.model.RequestLineItem;
 import com.example.supershop.repository.ProductRepository;
 import com.example.supershop.repository.ShopRepository;
 import com.example.supershop.repository.WareHouseRepository;
@@ -11,9 +9,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @SpringBootTest
 class ProductRequestServiceImplTest {
@@ -30,17 +25,17 @@ class ProductRequestServiceImplTest {
     void setUp() {
     }
 
-    @Test
-    void create() {
-        var product = productRepository.getOne(50L);
-        var shop = shopRepository.getOne(103L);
-        var wareHouse = wareHouseRepository.getOne(1L);
-        List<RequestLineItem> requestLineItems = new ArrayList<>();
-        requestLineItems.add(new RequestLineItem(56, product, 5, null));
-        var productRequest = new ProductRequestDto(1, requestLineItems, false, "send", requestLineItems.size(), shop, wareHouse);
-        var response = productRequestService.create(productRequest);
-        System.out.println(response);
-    }
+//    @Test
+//    void create() {
+//        var product = productRepository.getOne(50L);
+//        var shop = shopRepository.getOne(103L);
+//        var wareHouse = wareHouseRepository.getOne(1L);
+//        List<RequestLineItem> requestLineItems = new ArrayList<>();
+//        requestLineItems.add(new RequestLineItem(56, product, 5, null));
+//        var productRequest = new ProductRequestDto(1, requestLineItems, false, "send", requestLineItems.size(), shop, wareHouse);
+//        var response = productRequestService.create(productRequest);
+//        System.out.println(response);
+//    }
 
     @Test
     void findById() {
