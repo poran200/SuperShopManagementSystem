@@ -16,26 +16,26 @@ import java.io.Serializable;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","fieldHandler"})
-public class SaleInvoiceLineItem extends BaseModel implements LineItemPrice, Serializable {
-    private static  final  long SerialisationUUID = 1454L;
+public class ParchedI extends BaseModel implements LineItemPrice, Serializable {
+    private static final long SerialisationUUID = 1454L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  long id;
+    private long id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
-    @JsonIgnoreProperties(value = {"category","stockList","vat","details","expireDate"})
+    @JsonIgnoreProperties(value = {"category", "stockList", "vat", "details", "expireDate"})
 //    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Product product ;
-    private  int productQuantity;
+    private Product product;
+    private int productQuantity;
     private  double totalItemPrice;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "invoice_id")
     @JsonIgnoreProperties(value = {"invoiceItems"})
     private SalesInvoice invoice ;
 
-    public SaleInvoiceLineItem(Product product, int productQuantity) {
+    public ParchedI(Product product, int productQuantity) {
         this.product = product;
-        this.productQuantity= productQuantity;
+        this.productQuantity = productQuantity;
         this.totalItemPrice = this.getCalculatePrice();
     }
 

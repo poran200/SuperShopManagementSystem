@@ -33,24 +33,24 @@ public class SalesService {
         this.shopService = shopService;
     }
 
-    public SalesInvoice createSalesInvoice(List<SaleInvoiceLineItem> lineItems, long shopId,long userId){
-       SalesInvoice salesInvoice = new SalesInvoice();
+    public SalesInvoice createSalesInvoice(List<ParchedI> lineItems, long shopId, long userId) {
+        SalesInvoice salesInvoice = new SalesInvoice();
         User user = userService.gerById(userId);
         Optional<Shop> shop = shopService.findById(shopId);
-        if ((user != null) && (shop.isPresent())){
+        if ((user != null) && (shop.isPresent())) {
             salesInvoice.setUser(user);
-            logger.info("userId find{}",userId);
+            logger.info("userId find{}", userId);
             salesInvoice.setShop(shop.get());
-            logger.info("shop find{}",shopId);
+            logger.info("shop find{}", shopId);
             lineItems.forEach(saleInvoiceLineItem -> {
                 Product product = saleInvoiceLineItem.getProduct();
                 int productQuantity = saleInvoiceLineItem.getProductQuantity();
                 stockService.updateStock(shopId,product.getProductId(),productQuantity);
             });
             double totalBill = lineItems.stream()
-                    .mapToDouble(SaleInvoiceLineItem::getCalculatePrice).sum();
+                    .mapToDouble(ParchedI::getCalculatePrice).sum();
             salesInvoice.setTotalBill(totalBill);
-            double totalVat = lineItems.stream().mapToDouble(SaleInvoiceLineItem::getTotalVat).sum();
+            double totalVat = lineItems.stream().mapToDouble(ParchedI::getTotalVat).sum();
             salesInvoice.setTotalVat(totalVat);
             salesInvoice.setInvoiceItems(lineItems);
             lineItems.forEach(saleInvoiceLineItem -> saleInvoiceLineItem.setInvoice(salesInvoice));

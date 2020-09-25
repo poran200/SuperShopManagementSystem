@@ -76,13 +76,29 @@ public class WarehouseStockServiceImpl implements WarehouseStockService {
     @Override
     public Response deleteStock(long stockId) {
         var stock = wareHouseStockRepository.findByStockIdAndIsActiveTrue(stockId);
-        if (stock.isPresent()){
+        if (stock.isPresent()) {
             var wareHouseStock = stock.get();
             wareHouseStock.setIsActive(false);
             wareHouseStockRepository.save(wareHouseStock);
-            return ResponseBuilder.getSuccessResponse(HttpStatus.OK,"Stock delete ",null);
+            return ResponseBuilder.getSuccessResponse(HttpStatus.OK, "Stock delete ", null);
         }
-        return ResponseBuilder.getFailureResponse(HttpStatus.NOT_FOUND,"Stock not found  Id: "+stockId);
+        return ResponseBuilder.getFailureResponse(HttpStatus.NOT_FOUND, "Stock not found  Id: " + stockId);
 
+    }
+
+    @Override
+    public WareHouseStock updateStockParches(long warehouseId, long productId, int quantity) {
+        var stock = wareHouseStockRepository.findByWareHouseWarehouseIdAndProductProductIdAndIsActiveTrue(warehouseId, productId);
+        if (stock.isPresent()) {
+            var wareHouseStock = stock.get();
+            wareHouseStock.setQuantity(wareHouseStock.getQuantity() + quantity);
+            return wareHouseStockRepository.save(wareHouseStock);
+        } else {
+            CreateStockRequestDto dto = new CreateStockRequestDto();
+            dto.setProductId(productId);
+            dto.setWarehouseId(warehouseId);
+            dto.setQuantity(quantity);
+            return (WareHouseStock) create(dto).getContent();
+        }
     }
 }

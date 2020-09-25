@@ -11,9 +11,11 @@ public class PurchaseInvoiceRequest {
 
     @NotNull(message = "provider id must be need")
     private long providerId;
+    @NotNull(message = "warehouse id must be need")
+    private long warehouseId;
     @NotNull(message = "userId must be need")
     private long userId;
-    @Min(value = 1,message = "Item at last one mandatory!")
-    private List< @Valid ItemLineRequest> itemLineRequests;
+    @Min(value = 1, message = "Item at last one mandatory!")
+    private List<@Valid ItemLineRequest> itemLineRequests;
 
 }

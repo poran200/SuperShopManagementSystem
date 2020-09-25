@@ -16,5 +16,7 @@ public interface WarehouseStockService {
      * @return nothing
      * set is active true existing warehouse stock
      */
-    Response  deleteStock(long stockId);
+    Response deleteStock(long stockId);
+
+    WareHouseStock updateStockParches(long warehouseId, long productId, int quantity);
 }

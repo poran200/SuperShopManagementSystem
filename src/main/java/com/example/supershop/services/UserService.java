@@ -28,11 +28,12 @@ public class UserService {
     public User createUser(User user) throws EntityAlreadyExistException {
         Employee employee = user.getEmployee();
         Optional<User> optionalUser = userRepository.findById(user.getUserId());
-        if (optionalUser.isPresent()){
+        if (optionalUser.isPresent()) {
             throw new EntityAlreadyExistException(user);
         }
         Address save = addressRepository.save(employee.getAddress());
         System.out.println("save = " + save);
+        user.setEmployee(employee);
         employeeRepository.save(employee);
         return userRepository.save(user);
     }

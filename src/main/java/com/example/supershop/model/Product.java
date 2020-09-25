@@ -5,10 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Optional;
 
 import static javax.persistence.CascadeType.*;
 
@@ -43,7 +40,7 @@ public class Product extends BaseModel implements Serializable {
 //    @OneToMany(mappedBy = "product")
 //    private List<WareHouseStock> wareHouseStocks;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = {PERSIST, MERGE,
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {PERSIST, MERGE,
             DETACH, REFRESH}, optional = false)
     @JoinColumn(name = "category_id")
     @JsonIgnoreProperties(value = "productList")

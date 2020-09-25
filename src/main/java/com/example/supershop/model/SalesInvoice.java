@@ -8,7 +8,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 @Entity
 //@Data
@@ -22,10 +21,10 @@ public class SalesInvoice extends Invoice implements Serializable {
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  int  saleInvoiceId;
-    @OneToMany(mappedBy = "invoice" ,fetch = FetchType.EAGER ,cascade = CascadeType.ALL,orphanRemoval = true)
+    private int saleInvoiceId;
+    @OneToMany(mappedBy = "invoice", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties(value = {"invoice"})
-    private List<SaleInvoiceLineItem> invoiceItems;
+    private List<ParchedI> invoiceItems;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "shop_id")
     @JsonIgnore
@@ -36,22 +35,22 @@ public class SalesInvoice extends Invoice implements Serializable {
     private User user;
 
 
-    public  void add(SaleInvoiceLineItem lineItem){
-        if (invoiceItems== null){
-            invoiceItems= new ArrayList<>();
+    public void add(ParchedI lineItem) {
+        if (invoiceItems == null) {
+            invoiceItems = new ArrayList<>();
         }
         invoiceItems.add(lineItem);
     }
 
-    public void addAll(SaleInvoiceLineItem ... invoiceLineItems){
-        if (invoiceItems == null){
+    public void addAll(ParchedI... invoiceLineItems) {
+        if (invoiceItems == null) {
             invoiceItems = new ArrayList<>();
         }
-         this.invoiceItems.addAll(Arrays.asList(invoiceLineItems));
+        this.invoiceItems.addAll(Arrays.asList(invoiceLineItems));
     }
 
-    public void remove(SaleInvoiceLineItem lineItem){
-          this.invoiceItems.remove(lineItem);
+    public void remove(ParchedI lineItem) {
+        this.invoiceItems.remove(lineItem);
     }
 
 //    @Override

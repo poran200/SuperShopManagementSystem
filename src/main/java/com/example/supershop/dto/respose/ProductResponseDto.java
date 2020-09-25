@@ -1,6 +1,7 @@
 package com.example.supershop.dto.respose;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.hateoas.RepresentationModel;
@@ -14,6 +15,7 @@ public class ProductResponseDto  extends RepresentationModel<ProductResponseDto>
     private String productName;
     private String details;
     private Date expireDate;
+    @JsonProperty(value = "price")
     private double sellPrice;
     private  double vat ;
     @JsonIgnore

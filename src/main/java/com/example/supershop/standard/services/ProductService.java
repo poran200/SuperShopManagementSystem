@@ -7,7 +7,9 @@ import org.springframework.data.domain.Pageable;
 
 public interface ProductService {
     Response save(CreateProductRequestDto productRequestDto);
-    Response update(Long Id, CreateProductRequestDto  productRequestDto);
+
+    Response update(Long id, CreateProductRequestDto productRequestDto);
+
     Response getByProductName(String productName);
     Response  delete(Long Id);
     Response  getById(Long Id);

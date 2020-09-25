@@ -2,7 +2,7 @@ package com.example.supershop.standard.services.impl;
 
 import com.example.supershop.dto.request.SaleInvoiceUpdateRequestDto;
 import com.example.supershop.dto.respose.Response;
-import com.example.supershop.model.SaleInvoiceLineItem;
+import com.example.supershop.model.ParchedI;
 import com.example.supershop.model.SalesInvoice;
 import com.example.supershop.repository.SaleInvoiceLineItemRepository;
 import com.example.supershop.repository.SaleInvoiceRepository;
@@ -45,22 +45,22 @@ public class SaleInvoiceServiceImpl implements SaleInvoiceService {
     public Response update(int invoiceId, SaleInvoiceUpdateRequestDto salesInvoice) {
         var invoiceOptional = saleInvoiceRepository.findById(invoiceId);
         SalesInvoice salesInvoiceUpdate;
-        if (invoiceOptional.isPresent()){
+        if (invoiceOptional.isPresent()) {
             salesInvoiceUpdate = invoiceOptional.get();
             salesInvoiceUpdate.setSaleInvoiceId(salesInvoiceUpdate.getSaleInvoiceId());
             salesInvoiceUpdate.setUser(salesInvoiceUpdate.getUser());
             salesInvoice.getItemLineRequests().forEach(itemLineUpdateRequest -> salesInvoiceUpdate.getInvoiceItems().forEach(lineItem -> {
-                 if (itemLineUpdateRequest.getItemLineId()==lineItem.getId()){
-                     lineItem.setProductQuantity(itemLineUpdateRequest.getQuantity());
-                     lineItem.setTotalItemPrice(lineItem.getCalculatePrice());
-                 }
-             }));
-            var sum = salesInvoiceUpdate.getInvoiceItems().stream().mapToDouble(SaleInvoiceLineItem::getTotalItemPrice).sum();
-            var totalVat = salesInvoiceUpdate.getInvoiceItems().stream().mapToDouble(SaleInvoiceLineItem::getTotalVat).sum();
+                if (itemLineUpdateRequest.getItemLineId() == lineItem.getId()) {
+                    lineItem.setProductQuantity(itemLineUpdateRequest.getQuantity());
+                    lineItem.setTotalItemPrice(lineItem.getCalculatePrice());
+                }
+            }));
+            var sum = salesInvoiceUpdate.getInvoiceItems().stream().mapToDouble(ParchedI::getTotalItemPrice).sum();
+            var totalVat = salesInvoiceUpdate.getInvoiceItems().stream().mapToDouble(ParchedI::getTotalVat).sum();
             salesInvoiceUpdate.setTotalBill(sum);
             salesInvoiceUpdate.setTotalVat(totalVat);
             var saveInvoice = saleInvoiceRepository.save(salesInvoiceUpdate);
-            return getSuccessResponse(OK,"Invoice Updated",saveInvoice);
+            return getSuccessResponse(OK, "Invoice Updated", saveInvoice);
         }
         return getFailureResponse(NOT_FOUND,"Invoice not found");
     }

@@ -47,7 +47,7 @@ public class ProductSaleServiceImpl implements ProductSaleService {
     @Override
     public Response createSaleInvoice( SalesInvoiceRequest invoiceRequest) {
         SalesInvoice salesInvoice = new SalesInvoice();
-        List<SaleInvoiceLineItem> lineItems = new ArrayList<>();
+        List<ParchedI> lineItems = new ArrayList<>();
         Optional<User> optionalUser = userRepository.findById(invoiceRequest.getUserId());
         if (invoiceRequest.getItemLineRequests().isEmpty()){
             return getFailureResponse(HttpStatus.BAD_REQUEST,"Product list not  empty");
@@ -70,8 +70,8 @@ public class ProductSaleServiceImpl implements ProductSaleService {
         try {
             invoiceRequest.getItemLineRequests().forEach(lineRequest -> {
                 Optional<Product> product = productRepository.findById(lineRequest.getProductId());
-                product.ifPresent(value -> lineItems.add(new SaleInvoiceLineItem(product.get(), lineRequest.getQuantity())));
-                product.orElseThrow(()-> new EntityNotFoundException("product not found: "+lineRequest.getProductId()));
+                product.ifPresent(value -> lineItems.add(new ParchedI(product.get(), lineRequest.getQuantity())));
+                product.orElseThrow(() -> new EntityNotFoundException("product not found: " + lineRequest.getProductId()));
                 shopStockService.updateStock(invoiceRequest.getShopId(),product.get().getProductId(),lineRequest.getQuantity());
             });
         } catch (EntityNotFoundException | StockNOtAvailabelException e){
@@ -81,7 +81,6 @@ public class ProductSaleServiceImpl implements ProductSaleService {
         SalesInvoice invoice = invoiceRepository.save(calculate(salesInvoice,lineItems));
         saleInvoiceLineItemRepository.saveAll(lineItems);
         return  getSuccessResponse(HttpStatus.CREATED,"Invoice created",invoice);
-
 
     }
 
@@ -104,9 +103,9 @@ public class ProductSaleServiceImpl implements ProductSaleService {
 
 
     @Override
-    public SalesInvoice calculate(SalesInvoice salesInvoice, List<SaleInvoiceLineItem> lineItems) {
-        salesInvoice.setTotalBill(lineItems.stream().mapToDouble(SaleInvoiceLineItem::getCalculatePrice).sum());
-        salesInvoice.setTotalVat(lineItems.stream().mapToDouble(SaleInvoiceLineItem::getTotalVat).sum());
+    public SalesInvoice calculate(SalesInvoice salesInvoice, List<ParchedI> lineItems) {
+        salesInvoice.setTotalBill(lineItems.stream().mapToDouble(ParchedI::getCalculatePrice).sum());
+        salesInvoice.setTotalVat(lineItems.stream().mapToDouble(ParchedI::getTotalVat).sum());
         salesInvoice.setInvoiceItems(lineItems);
         return salesInvoice;
     }

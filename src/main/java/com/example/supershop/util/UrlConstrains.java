@@ -143,4 +143,27 @@ public final class UrlConstrains {
         public static final String ALL_BY_PAGE = "/shops";
         public static final String DELETE = "/{id}";
     }
+
+    public static class PurchaseInvoiceManagement {
+        public static final String DELETE_INVOICE_ITEM = "invoice/{invoiceId}/itemId/{itemId}";
+
+        private PurchaseInvoiceManagement() {
+        }
+
+        public static final String ROOT = API + VERSION + "/purchase-invoice";
+        public static final String CREATE = "";
+        public static final String FIND_BY_ID = "/{id}";
+        public static final String UPDATE = "/{id}";
+        public static final String ALL_BY_PAGE = "/invoices";
+        public static final String DELETE = "/{id}";
+
+    }
+
+    public static class PurchaseManagement {
+        private PurchaseManagement() {
+        }
+
+        public static final String ROOT = API + VERSION + "/purchase";
+        public static final String PRODUCT_PARCHED = "";
+    }
 }

@@ -56,9 +56,9 @@ class ProductsServiceTest {
 
 //         categoryService.deleteAllProducts(4);
 //         categoryRepository.deleteById(4L);
-        Category category = new Category(4, "Test category", null,null,null);
+        Category category = new Category(1, "Test category", null, null, null);
         categoryRepository.save(category);
-        assertEquals(4,category.getId());
+        assertEquals(1, category.getId());
     }
 
     @Test

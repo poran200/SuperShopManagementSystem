@@ -48,7 +48,8 @@ public class ProductRequestServiceImpl implements ProductRequestService {
         var productRequest = modelMapper.map(productRequestDto, ProductRequest.class);
         productRequest.addItem(productRequestDto.getRequestLineItems());
         var save = productRequestRepository.save(productRequest);
-        return ResponseBuilder.getSuccessResponse(HttpStatus.CREATED, "created", productRequestDto);
+        var responseDto = modelMapper.map(save, ProductRequestDto.class);
+        return ResponseBuilder.getSuccessResponse(HttpStatus.CREATED, "created", addLink(responseDto, save.getRequestShop().getShopId(), save.getWareHouse().getWarehouseId()));
     }
 
     @Override
