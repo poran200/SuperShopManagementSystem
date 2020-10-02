@@ -15,9 +15,13 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"}, callSuper = false)
-public class Role extends BaseModel{
+public class Role extends BaseModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private  String role;
+    private String role;
+
+    public Role(String role) {
+        this.role = role;
+    }
 }
