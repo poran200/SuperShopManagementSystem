@@ -179,4 +179,11 @@ public final class UrlConstrains {
         public static final String ROOT = API + VERSION + "/product-sale";
 
     }
+
+    public static class UserReg {
+        private UserReg() {
+        }
+
+        public static final String REGISTRATION = "/registration";
+    }
 }
