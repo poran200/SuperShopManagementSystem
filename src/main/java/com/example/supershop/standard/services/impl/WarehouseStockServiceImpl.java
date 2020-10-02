@@ -2,6 +2,7 @@ package com.example.supershop.standard.services.impl;
 
 import com.example.supershop.dto.request.CreateStockRequestDto;
 import com.example.supershop.dto.respose.Response;
+import com.example.supershop.enam.StockUpdateStatus;
 import com.example.supershop.model.WareHouseStock;
 import com.example.supershop.repository.ProductRepository;
 import com.example.supershop.repository.WareHouseRepository;
@@ -87,11 +88,15 @@ public class WarehouseStockServiceImpl implements WarehouseStockService {
     }
 
     @Override
-    public WareHouseStock updateStockParches(long warehouseId, long productId, int quantity) {
+    public WareHouseStock updateStockParches(long warehouseId, long productId, int quantity, StockUpdateStatus status) {
         var stock = wareHouseStockRepository.findByWareHouseWarehouseIdAndProductProductIdAndIsActiveTrue(warehouseId, productId);
         if (stock.isPresent()) {
             var wareHouseStock = stock.get();
-            wareHouseStock.setQuantity(wareHouseStock.getQuantity() + quantity);
+            if (StockUpdateStatus.INCREASE == status) {
+                wareHouseStock.setQuantity(wareHouseStock.getQuantity() + quantity);
+            } else if (StockUpdateStatus.DECREASE == status) {
+                wareHouseStock.setQuantity(wareHouseStock.getQuantity() - quantity);
+            }
             return wareHouseStockRepository.save(wareHouseStock);
         } else {
             CreateStockRequestDto dto = new CreateStockRequestDto();

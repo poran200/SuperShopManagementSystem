@@ -44,7 +44,7 @@ class UserServiceTest {
     Employee employee2  = new Employee(2002, name2, new Date(), "i@email.com",list,new Date(),
             Gender.MALE, "manager", address, null, null);
 
-    User user = new User(103L, "hello", "123", roleList, employee);
+    User user = new User(103L, "hello", "hello@gmail.com", "123", "Http:image.com/123erd", roleList, true, employee);
 
     @BeforeEach
     void setUp() {

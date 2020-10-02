@@ -159,6 +159,13 @@ public class ShopStockServiceImpl implements ShopStockService {
                 "Stock not found Id: " + stockDto.getStockId());
     }
 
+    @Override
+    public Response findAllByShopAndCategoryId(long shopId, long categoryId, Pageable pageable) {
+        var page = stockRepository.findByShop_ShopIdAndProductCategoryId(shopId, categoryId, pageable)
+                .map(stock -> modelMapper.map(stock, StockDto.class));
+        return getSuccessResponsePage(HttpStatus.OK, " All Stock by shop and category", page);
+    }
+
     private void mapping() {
         modelMapper.getConfiguration().setPropertyCondition(Conditions.isNotNull());
         modelMapper.createTypeMap(StockDto.class, Stock.class)

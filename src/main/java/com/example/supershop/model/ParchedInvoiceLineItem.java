@@ -44,12 +44,12 @@ public class ParchedInvoiceLineItem extends BaseModel implements LineItemPrice, 
     @JsonIgnore
     public Double getCalculatePrice() {
         var sellPrice = this.product.getPrice().getSellPrice();
-        double vat = (product.getVat() / 100) * this.parchedItemQuantity;
-        return (this.parchedItemQuantity * sellPrice) + vat;
+        double totalVat = ((product.getVat() / 100) * sellPrice) * this.parchedItemQuantity;
+        return (this.parchedItemQuantity * sellPrice) + totalVat;
     }
 
     @JsonIgnore
     public Double getTotalVat() {
-        return product.getVat() * this.parchedItemQuantity;
+        return ((product.getVat() / 100) * this.product.getPrice().getSellPrice()) * this.parchedItemQuantity;
     }
 }

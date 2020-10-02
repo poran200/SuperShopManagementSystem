@@ -28,6 +28,7 @@ public class ProductRequestController {
     }
 
     @PostMapping(ProductRequestManagement.CREATE)
+    @DataValidation
     public ResponseEntity<Object> create(@Valid @RequestBody ProductRequestDto productRequestDto, BindingResult result) {
         var response = productRequestService.create(productRequestDto);
         return ResponseEntity.status((int) response.getStatusCode()).body(response);

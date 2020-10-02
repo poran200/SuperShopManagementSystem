@@ -9,7 +9,6 @@ import com.example.supershop.model.Provider;
 import com.example.supershop.repository.AddressRepository;
 import com.example.supershop.repository.ProviderRepository;
 import com.example.supershop.standard.services.ProviderService;
-import com.example.supershop.util.ResponseBuilder;
 import org.modelmapper.Conditions;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Pageable;
@@ -17,11 +16,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import static com.example.supershop.util.ResponseBuilder.*;
+
 @Service("ProviderService")
 public class ProviderServiceImpl implements ProviderService {
     private final ModelMapper modelMapper;
     private final ProviderRepository providerRepository;
     private final AddressRepository addressRepository;
+
     public ProviderServiceImpl(ModelMapper modelMapper, ProviderRepository providerRepository, AddressRepository addressRepository) {
         this.modelMapper = modelMapper;
         this.providerRepository = providerRepository;
@@ -37,15 +39,15 @@ public class ProviderServiceImpl implements ProviderService {
         Address address = modelMapper.map(provider.getAddress(), Address.class);
         Address saveAgrees = addressRepository.save(address);
         if (saveAgrees == null){
-            return ResponseBuilder.getFailureResponse(HttpStatus.INTERNAL_SERVER_ERROR,"Internal server error when address save");
+            return getFailureResponse(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error when address save");
         } else {
             provider.setAddress(saveAgrees);
             Provider saveProvider = providerRepository.save(provider);
             var respondDot = modelMapper.map(saveProvider, ProviderResponseDto.class);
             if (saveProvider != null){
-               return ResponseBuilder.getSuccessResponse(HttpStatus.CREATED,"provider created",respondDot);
+                return getSuccessResponse(HttpStatus.CREATED, "provider created", respondDot);
             }
-            return ResponseBuilder.getFailureResponse(HttpStatus.BAD_REQUEST,"provider not save");
+            return getFailureResponse(HttpStatus.BAD_REQUEST, "provider not save");
         }
 
     }
@@ -56,19 +58,19 @@ public class ProviderServiceImpl implements ProviderService {
         var optionalProvider = providerRepository.findById(providerId);
         if (optionalProvider.isPresent()){
             Provider provider = optionalProvider.get();
-            return ResponseBuilder.getSuccessResponse(HttpStatus.OK,"provider found ",provider);
+            return getSuccessResponse(HttpStatus.OK, "provider found ", provider);
         }
-        return ResponseBuilder.getFailureResponse(HttpStatus.NOT_FOUND,"provider not found Id: "+providerId);
+        return getFailureResponse(HttpStatus.NOT_FOUND, "provider not found Id: " + providerId);
     }
 
     @Override
     @Transactional(readOnly = true)
     public Response getAllProvider(Pageable pageable) {
         var providers = providerRepository.findAll(pageable).map(provider -> modelMapper.map(provider, ProviderResponseDto.class));
-        if (providers.hasContent()){
-            return ResponseBuilder.getFailureResponse(HttpStatus.NOT_FOUND,"Providers not found");
+        if (!providers.hasContent()) {
+            return getFailureResponse(HttpStatus.NOT_FOUND, "Providers not found");
         }
-        return ResponseBuilder.getSuccessResponsePage(HttpStatus.OK,"Provider found",providers);
+        return getSuccessResponsePage(HttpStatus.OK, "Provider found", providers);
     }
 
     @Override
@@ -80,10 +82,10 @@ public class ProviderServiceImpl implements ProviderService {
             provider.setId(optionalProvider.get().getId());
             provider.setInvoiceList(optionalProvider.get().getInvoiceList());
             var saveProvider = providerRepository.save(provider);
-            return ResponseBuilder.getSuccessResponse(HttpStatus.OK,
-                    "Provider updated",modelMapper.map(saveProvider,ProviderResponseDto.class));
+            return getSuccessResponse(HttpStatus.OK,
+                    "Provider updated", modelMapper.map(saveProvider, ProviderResponseDto.class));
         }
-        return ResponseBuilder.getFailureResponse(HttpStatus.NOT_FOUND,"Providers not found Id: "+providerId);
+        return getFailureResponse(HttpStatus.NOT_FOUND, "Providers not found Id: " + providerId);
     }
 
 
@@ -98,10 +100,10 @@ public class ProviderServiceImpl implements ProviderService {
         var optionalProvider = providerRepository.findByIdAndIsActiveTrue(providerId);
 //        var list = providerRepository.findByIdAndIsActiveTrue(providerId).get().getInvoiceList();
         if (optionalProvider.isPresent()){
-            return ResponseBuilder.getSuccessResponse(HttpStatus.OK,
-                    "Provider Found ",optionalProvider.get().getInvoiceList());
+            return getSuccessResponse(HttpStatus.OK,
+                    "Provider Found ", optionalProvider.get().getInvoiceList());
         }
-         return ResponseBuilder.getFailureResponse(HttpStatus.NOT_FOUND,"Provider Not found Id: "+providerId);
+        return getFailureResponse(HttpStatus.NOT_FOUND, "Provider Not found Id: " + providerId);
 
     }
 

@@ -38,11 +38,11 @@ public class ProviderController {
 
     @GetMapping(FIND_BY_ID)
     @Async
-    public CompletableFuture<ResponseEntity<Object>> getProviderId(@PathVariable Long providerId){
+    public CompletableFuture<ResponseEntity<Object>> getProviderById(@PathVariable Long providerId) {
         var response = providerService.getById(providerId);
-        if (response.getContent() != null){
+        if (response.getContent() != null) {
             Provider provider = (Provider) response.getContent();
-            ProviderResponseDto  providerResponseDto =  modelMapper.map(provider,ProviderResponseDto.class);
+            ProviderResponseDto providerResponseDto = modelMapper.map(provider, ProviderResponseDto.class);
             providerResponseDto.add(linkTo(methodOn(AddressController.class)
                     .getById(provider.getAddress().getId())).withRel("/address"));
 

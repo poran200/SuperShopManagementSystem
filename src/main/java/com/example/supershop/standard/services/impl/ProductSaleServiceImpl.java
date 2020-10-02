@@ -4,7 +4,9 @@ import com.example.supershop.dto.request.SalesInvoiceRequest;
 import com.example.supershop.dto.respose.Response;
 import com.example.supershop.exception.EntityNotFoundException;
 import com.example.supershop.exception.StockNOtAvailabelException;
-import com.example.supershop.model.*;
+import com.example.supershop.model.Product;
+import com.example.supershop.model.SaleInvoiceLineItem;
+import com.example.supershop.model.SalesInvoice;
 import com.example.supershop.repository.*;
 import com.example.supershop.standard.services.ProductSaleService;
 import com.example.supershop.standard.services.ProductService;
@@ -47,35 +49,35 @@ public class ProductSaleServiceImpl implements ProductSaleService {
     @Override
     public Response createSaleInvoice( SalesInvoiceRequest invoiceRequest) {
         SalesInvoice salesInvoice = new SalesInvoice();
-        List<ParchedI> lineItems = new ArrayList<>();
-        Optional<User> optionalUser = userRepository.findById(invoiceRequest.getUserId());
-        if (invoiceRequest.getItemLineRequests().isEmpty()){
-            return getFailureResponse(HttpStatus.BAD_REQUEST,"Product list not  empty");
+        List<SaleInvoiceLineItem> lineItems = new ArrayList<>();
+//        Optional<User> optionalUser = userRepository.findById(invoiceRequest.getUserId());
+        if (invoiceRequest.getItemLineRequests().isEmpty()) {
+            return getFailureResponse(HttpStatus.BAD_REQUEST, "Product list not  empty");
         }
-        if (optionalUser.isPresent()){
-            salesInvoice.setUser(optionalUser.get());
-            Optional<Shop> optionalShop = shopRepository.findById(invoiceRequest.getShopId());
-            if (optionalShop.isPresent()){
-                salesInvoice.setShop(optionalShop.get());
-            }else {
-                return getFailureResponse(HttpStatus.NOT_FOUND,
-                                "shop not found :"+invoiceRequest.getShopId());
-            }
-        } else {
-            return getFailureResponse(HttpStatus.NOT_FOUND,
-                            "user not found :"+invoiceRequest.getUserId());
-
-        }
+//        if (optionalUser.isPresent()){
+//            salesInvoice.setUser(optionalUser.get());
+//            Optional<Shop> optionalShop = shopRepository.findById(invoiceRequest.getShopId());
+//            if (optionalShop.isPresent()){
+//                salesInvoice.setShop(optionalShop.get());
+//            }else {
+//                return getFailureResponse(HttpStatus.NOT_FOUND,
+//                                "shop not found :"+invoiceRequest.getShopId());
+//            }
+//        } else {
+//            return getFailureResponse(HttpStatus.NOT_FOUND,
+//                            "user not found :"+invoiceRequest.getUserId());
+//
+//        }
 
         try {
             invoiceRequest.getItemLineRequests().forEach(lineRequest -> {
                 Optional<Product> product = productRepository.findById(lineRequest.getProductId());
-                product.ifPresent(value -> lineItems.add(new ParchedI(product.get(), lineRequest.getQuantity())));
+                product.ifPresent(value -> lineItems.add(new SaleInvoiceLineItem(product.get(), lineRequest.getQuantity())));
                 product.orElseThrow(() -> new EntityNotFoundException("product not found: " + lineRequest.getProductId()));
-                shopStockService.updateStock(invoiceRequest.getShopId(),product.get().getProductId(),lineRequest.getQuantity());
+                shopStockService.updateStock(invoiceRequest.getShopId(), product.get().getProductId(), lineRequest.getQuantity());
             });
-        } catch (EntityNotFoundException | StockNOtAvailabelException e){
-            return getFailureResponse(HttpStatus.NOT_FOUND,e.getMessage());
+        } catch (EntityNotFoundException | StockNOtAvailabelException e) {
+            return getFailureResponse(HttpStatus.NOT_FOUND, e.getMessage());
         }
 
         SalesInvoice invoice = invoiceRepository.save(calculate(salesInvoice,lineItems));
@@ -103,11 +105,12 @@ public class ProductSaleServiceImpl implements ProductSaleService {
 
 
     @Override
-    public SalesInvoice calculate(SalesInvoice salesInvoice, List<ParchedI> lineItems) {
-        salesInvoice.setTotalBill(lineItems.stream().mapToDouble(ParchedI::getCalculatePrice).sum());
-        salesInvoice.setTotalVat(lineItems.stream().mapToDouble(ParchedI::getTotalVat).sum());
+    public SalesInvoice calculate(SalesInvoice salesInvoice, List<SaleInvoiceLineItem> lineItems) {
+        salesInvoice.setTotalBill(lineItems.stream().mapToDouble(SaleInvoiceLineItem::getCalculatePrice).sum());
+        salesInvoice.setTotalVat(lineItems.stream().mapToDouble(SaleInvoiceLineItem::getTotalVat).sum());
         salesInvoice.setInvoiceItems(lineItems);
         return salesInvoice;
     }
+
 
 }

@@ -2,7 +2,7 @@ package com.example.supershop.standard.services;
 
 import com.example.supershop.dto.request.SalesInvoiceRequest;
 import com.example.supershop.dto.respose.Response;
-import com.example.supershop.model.ParchedI;
+import com.example.supershop.model.SaleInvoiceLineItem;
 import com.example.supershop.model.SalesInvoice;
 
 import java.awt.print.Pageable;
@@ -16,7 +16,7 @@ public interface ProductSaleService {
 
     Response updateInvoice(Long invoiceId, SalesInvoice invoice);
 
-    SalesInvoice calculate(SalesInvoice salesInvoice, List<ParchedI> lineItems);
+    SalesInvoice calculate(SalesInvoice salesInvoice, List<SaleInvoiceLineItem> lineItems);
 
 }
 

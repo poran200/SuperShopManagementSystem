@@ -1,7 +1,7 @@
 package com.example.supershop.services;
 
-import com.example.supershop.model.ParchedI;
 import com.example.supershop.model.Product;
+import com.example.supershop.model.SaleInvoiceLineItem;
 import com.example.supershop.model.SalesInvoice;
 import com.example.supershop.standard.services.ProductService;
 import org.junit.jupiter.api.Test;
@@ -23,8 +23,8 @@ class SalesServiceTest {
     @Test
     void createSalesInvoice() {
         Product product = productsService.getByIdIsActiveTrue(2354L);
-        List<ParchedI> lineItems = new ArrayList<>();
-        lineItems.add(new ParchedI(product, 5));
+        List<SaleInvoiceLineItem> lineItems = new ArrayList<>();
+        lineItems.add(new SaleInvoiceLineItem(product, 5));
         SalesInvoice salesInvoice = salesService.createSalesInvoice(lineItems, 103, 101);
 //        assertThrows(StockNOtAvailabelException.class, ()-> {
 //            SalesInvoice salesInvoice = salesService.createSalesInvoice(lineItems, 103, 101);

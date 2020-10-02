@@ -1,7 +1,10 @@
 package com.example.supershop.services;
 
 import com.example.supershop.exception.EntityNotFoundException;
-import com.example.supershop.model.*;
+import com.example.supershop.model.Product;
+import com.example.supershop.model.SaleInvoiceLineItem;
+import com.example.supershop.model.SalesInvoice;
+import com.example.supershop.model.Shop;
 import com.example.supershop.repository.SaleInvoiceLineItemRepository;
 import com.example.supershop.repository.SaleInvoiceRepository;
 import com.example.supershop.standard.services.ShopStockService;
@@ -33,24 +36,21 @@ public class SalesService {
         this.shopService = shopService;
     }
 
-    public SalesInvoice createSalesInvoice(List<ParchedI> lineItems, long shopId, long userId) {
+    public SalesInvoice createSalesInvoice(List<SaleInvoiceLineItem> lineItems, long shopId, long userId) {
         SalesInvoice salesInvoice = new SalesInvoice();
-        User user = userService.gerById(userId);
         Optional<Shop> shop = shopService.findById(shopId);
-        if ((user != null) && (shop.isPresent())) {
-            salesInvoice.setUser(user);
-            logger.info("userId find{}", userId);
+        if ((shop.isPresent())) {
             salesInvoice.setShop(shop.get());
             logger.info("shop find{}", shopId);
             lineItems.forEach(saleInvoiceLineItem -> {
                 Product product = saleInvoiceLineItem.getProduct();
-                int productQuantity = saleInvoiceLineItem.getProductQuantity();
-                stockService.updateStock(shopId,product.getProductId(),productQuantity);
+                int productQuantity = saleInvoiceLineItem.getItemQuantity();
+                stockService.updateStock(shopId, product.getProductId(), productQuantity);
             });
             double totalBill = lineItems.stream()
-                    .mapToDouble(ParchedI::getCalculatePrice).sum();
+                    .mapToDouble(SaleInvoiceLineItem::getCalculatePrice).sum();
             salesInvoice.setTotalBill(totalBill);
-            double totalVat = lineItems.stream().mapToDouble(ParchedI::getTotalVat).sum();
+            double totalVat = lineItems.stream().mapToDouble(SaleInvoiceLineItem::getTotalVat).sum();
             salesInvoice.setTotalVat(totalVat);
             salesInvoice.setInvoiceItems(lineItems);
             lineItems.forEach(saleInvoiceLineItem -> saleInvoiceLineItem.setInvoice(salesInvoice));

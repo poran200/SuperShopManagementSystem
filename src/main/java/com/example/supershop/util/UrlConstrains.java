@@ -41,18 +41,21 @@ public final class UrlConstrains {
         public static final String  CREATE ="/create";
         public static final String FIND_BY_ID ="/{providerId}";
         public static final String FINDBY_Name ="/{providerName}";
-        public static final String UPDATE= "/{providerId}";
+        public static final String UPDATE = "/{providerId}";
         public static final String ALL = "/providers";
-        public static  final  String Provider_Invoices = "/{providerId}/invoices";
+        public static final String Provider_Invoices = "/{providerId}/invoices";
     }
-    public static  class InvoiceManagement{
-        public static final String FIND_BY_SHOP_ID = "shop/{shopId}" ;
-        public static final String DELETE_INVOICE_LINE_ITEM="/{invoiceId}/lineItem/{lineItemId}";
 
-        private InvoiceManagement(){}
-        public static final  String ROOT = API+VERSION+"/invoice";
-        public static  final  String FIND_BY_ID= "/{invoiceId}";
-        public static final String UPDATE= "/{invoiceId}";
+    public static class InvoiceManagement {
+        public static final String FIND_BY_SHOP_ID = "shop/{shopId}";
+        public static final String DELETE_INVOICE_LINE_ITEM = "/{invoiceId}/lineItem/{lineItemId}";
+
+        private InvoiceManagement() {
+        }
+
+        public static final String ROOT = API + VERSION + "/invoice";
+        public static final String FIND_BY_ID = "/{invoiceId}";
+        public static final String UPDATE = "/{invoiceId}";
 
     }
 
@@ -130,6 +133,7 @@ public final class UrlConstrains {
         public static final String UPDATE = "/{id}";
         public static final String ALL_BY_PAGE = "/stocks/{shopId}";
         public static final String DELETE = "/{id}";
+        public static final String FIND_BY_SHOP_ID_AND_CATEGORY_ID = "/{shopId}/category/{categoryId}";
     }
 
     public static class ShopManagement {
@@ -146,6 +150,7 @@ public final class UrlConstrains {
 
     public static class PurchaseInvoiceManagement {
         public static final String DELETE_INVOICE_ITEM = "invoice/{invoiceId}/itemId/{itemId}";
+        public static final String ALL_BY_WAREHOUSE = "invoice/{warehouseId}";
 
         private PurchaseInvoiceManagement() {
         }
@@ -165,5 +170,13 @@ public final class UrlConstrains {
 
         public static final String ROOT = API + VERSION + "/purchase";
         public static final String PRODUCT_PARCHED = "";
+    }
+
+    public static class ProductSaleManagement {
+        private ProductSaleManagement() {
+        }
+
+        public static final String ROOT = API + VERSION + "/product-sale";
+
     }
 }

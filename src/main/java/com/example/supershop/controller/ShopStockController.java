@@ -44,4 +44,11 @@ public class ShopStockController {
         var response = shopStockService.getStockByPage(shopId, pageable);
         return ResponseEntity.status((int) response.getStatusCode()).body(response);
     }
+
+    @GetMapping(FIND_BY_SHOP_ID_AND_CATEGORY_ID)
+    public ResponseEntity<Object> getAllShopAndCategory(@PathVariable long shopId,
+                                                        @PathVariable long categoryId, @RequestParam(required = false) Pageable pageable) {
+        var response = shopStockService.findAllByShopAndCategoryId(shopId, categoryId, pageable);
+        return ResponseEntity.status((int) response.getStatusCode()).body(response);
+    }
 }

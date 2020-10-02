@@ -2,7 +2,7 @@ package com.example.supershop.standard.services.impl;
 
 import com.example.supershop.dto.request.SaleInvoiceUpdateRequestDto;
 import com.example.supershop.dto.respose.Response;
-import com.example.supershop.model.ParchedI;
+import com.example.supershop.model.SaleInvoiceLineItem;
 import com.example.supershop.model.SalesInvoice;
 import com.example.supershop.repository.SaleInvoiceLineItemRepository;
 import com.example.supershop.repository.SaleInvoiceRepository;
@@ -31,15 +31,17 @@ public class SaleInvoiceServiceImpl implements SaleInvoiceService {
     public Response getById(int invoiceId) {
         var invoice = saleInvoiceRepository.findBySaleInvoiceIdAndIsActiveTrue(invoiceId);
         return invoice.map(salesInvoice -> getSuccessResponse(OK, "invoice found", salesInvoice))
-                .orElse( getFailureResponse(NOT_FOUND,"Invoice not found"));
+                .orElse(getFailureResponse(NOT_FOUND, "Invoice not found"));
     }
 
     @Override
     public Response getAllByPage(Pageable pageable) {
-        return getSuccessResponsePage(OK,"InvoiceList ",
+        return getSuccessResponsePage(OK, "InvoiceList ",
                 saleInvoiceRepository.findAll(pageable));
     }
-    // temporary fix the update method
+
+    // todo
+    //  temporary fix the update method
     @Override
     @Transactional
     public Response update(int invoiceId, SaleInvoiceUpdateRequestDto salesInvoice) {
@@ -48,15 +50,14 @@ public class SaleInvoiceServiceImpl implements SaleInvoiceService {
         if (invoiceOptional.isPresent()) {
             salesInvoiceUpdate = invoiceOptional.get();
             salesInvoiceUpdate.setSaleInvoiceId(salesInvoiceUpdate.getSaleInvoiceId());
-            salesInvoiceUpdate.setUser(salesInvoiceUpdate.getUser());
             salesInvoice.getItemLineRequests().forEach(itemLineUpdateRequest -> salesInvoiceUpdate.getInvoiceItems().forEach(lineItem -> {
                 if (itemLineUpdateRequest.getItemLineId() == lineItem.getId()) {
-                    lineItem.setProductQuantity(itemLineUpdateRequest.getQuantity());
-                    lineItem.setTotalItemPrice(lineItem.getCalculatePrice());
+                    lineItem.setItemQuantity(itemLineUpdateRequest.getQuantity());
+                    lineItem.setTotalItemLinePrice(lineItem.getCalculatePrice());
                 }
             }));
-            var sum = salesInvoiceUpdate.getInvoiceItems().stream().mapToDouble(ParchedI::getTotalItemPrice).sum();
-            var totalVat = salesInvoiceUpdate.getInvoiceItems().stream().mapToDouble(ParchedI::getTotalVat).sum();
+            var sum = salesInvoiceUpdate.getInvoiceItems().stream().mapToDouble(SaleInvoiceLineItem::getCalculatePrice).sum();
+            var totalVat = salesInvoiceUpdate.getInvoiceItems().stream().mapToDouble(SaleInvoiceLineItem::getTotalVat).sum();
             salesInvoiceUpdate.setTotalBill(sum);
             salesInvoiceUpdate.setTotalVat(totalVat);
             var saveInvoice = saleInvoiceRepository.save(salesInvoiceUpdate);
@@ -101,7 +102,6 @@ public class SaleInvoiceServiceImpl implements SaleInvoiceService {
             }
         }
         return getFailureResponse(NOT_FOUND,"Line item not fond in Invoice Id:"+invoiceId);
-
     }
 
     @Override

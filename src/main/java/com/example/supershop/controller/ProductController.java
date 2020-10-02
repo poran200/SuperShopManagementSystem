@@ -43,6 +43,7 @@ public class ProductController {
     }
 
     @PutMapping(UrlConstrains.ProductManagement.UPDATE)
+    @DataValidation
     public ResponseEntity<Response> update(@PathVariable long id, @RequestBody CreateProductRequestDto dto,
                                            BindingResult bindingResult) {
         var response = productsService.update(id, dto);

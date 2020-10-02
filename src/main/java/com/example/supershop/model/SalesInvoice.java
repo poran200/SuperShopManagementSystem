@@ -24,32 +24,28 @@ public class SalesInvoice extends Invoice implements Serializable {
     private int saleInvoiceId;
     @OneToMany(mappedBy = "invoice", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties(value = {"invoice"})
-    private List<ParchedI> invoiceItems;
+    private List<SaleInvoiceLineItem> invoiceItems;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "shop_id")
     @JsonIgnore
     private Shop shop;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id")
-    @JsonIgnore
-    private User user;
 
 
-    public void add(ParchedI lineItem) {
+    public void add(SaleInvoiceLineItem lineItem) {
         if (invoiceItems == null) {
             invoiceItems = new ArrayList<>();
         }
         invoiceItems.add(lineItem);
     }
 
-    public void addAll(ParchedI... invoiceLineItems) {
+    public void addAll(SaleInvoiceLineItem... invoiceLineItems) {
         if (invoiceItems == null) {
             invoiceItems = new ArrayList<>();
         }
         this.invoiceItems.addAll(Arrays.asList(invoiceLineItems));
     }
 
-    public void remove(ParchedI lineItem) {
+    public void remove(SaleInvoiceLineItem lineItem) {
         this.invoiceItems.remove(lineItem);
     }
 

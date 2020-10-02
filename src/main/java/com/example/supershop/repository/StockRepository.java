@@ -21,5 +21,7 @@ public interface StockRepository extends JpaRepository<Stock, Long> {
 
     Optional<Stock> findByStockIdAndIsActiveTrueAndShop_ShopIdAndProduct_ProductId(long stockId, long shopId, long productId);
 
+    Page<Stock> findByShop_ShopIdAndProductCategoryId(long shop_shopId, long product_category_id, Pageable pageable);
+
     List<Stock> findAllByIsActiveTrueAndQuantityLessThan(int quantity);
 }

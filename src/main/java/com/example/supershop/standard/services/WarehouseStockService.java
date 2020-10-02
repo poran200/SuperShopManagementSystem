@@ -2,6 +2,7 @@ package com.example.supershop.standard.services;
 
 import com.example.supershop.dto.request.CreateStockRequestDto;
 import com.example.supershop.dto.respose.Response;
+import com.example.supershop.enam.StockUpdateStatus;
 import com.example.supershop.model.WareHouseStock;
 import org.springframework.data.domain.Pageable;
 
@@ -18,5 +19,5 @@ public interface WarehouseStockService {
      */
     Response deleteStock(long stockId);
 
-    WareHouseStock updateStockParches(long warehouseId, long productId, int quantity);
+    WareHouseStock updateStockParches(long warehouseId, long productId, int quantity, StockUpdateStatus status);
 }

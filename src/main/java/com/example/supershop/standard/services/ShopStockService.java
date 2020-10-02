@@ -25,4 +25,6 @@ public interface ShopStockService {
 
     Response updateStock(StockDto stockDto);
 
+    Response findAllByShopAndCategoryId(long shopId, long categoryId, Pageable pageable);
+
 }
